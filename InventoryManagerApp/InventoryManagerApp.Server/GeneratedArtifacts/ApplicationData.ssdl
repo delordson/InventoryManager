@@ -1,0 +1,503 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ApplicationDataStore" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ApplicationDataStore">
+    <EntitySet Name="Customers" EntityType="ApplicationDataStore.Customer" store:Type="Tables" Schema="dbo" Table="Customers" />
+    <EntitySet Name="Employees" EntityType="ApplicationDataStore.Employee" store:Type="Tables" Schema="dbo" Table="Employees" />
+    <EntitySet Name="OrderDetails" EntityType="ApplicationDataStore.OrderDetail" store:Type="Tables" Schema="dbo" Table="OrderDetails" />
+    <EntitySet Name="Orders" EntityType="ApplicationDataStore.Order" store:Type="Tables" Schema="dbo" Table="Orders" />
+    <EntitySet Name="ProductCategories" EntityType="ApplicationDataStore.ProductCategory" store:Type="Tables" Schema="dbo" Table="ProductCategories" />
+    <EntitySet Name="Products" EntityType="ApplicationDataStore.Product" store:Type="Tables" Schema="dbo" Table="Products" />
+    <EntitySet Name="ProductSubscribers" EntityType="ApplicationDataStore.ProductSubscriber" store:Type="Tables" Schema="dbo" Table="ProductSubscribers" />
+    <EntitySet Name="PurchaseOrderDetails" EntityType="ApplicationDataStore.PurchaseOrderDetail" store:Type="Tables" Schema="dbo" Table="PurchaseOrderDetails" />
+    <EntitySet Name="PurchaseOrders" EntityType="ApplicationDataStore.PurchaseOrder" store:Type="Tables" Schema="dbo" Table="PurchaseOrders" />
+    <EntitySet Name="ShippingMethods" EntityType="ApplicationDataStore.ShippingMethod" store:Type="Tables" Schema="dbo" Table="ShippingMethods" />
+    <EntitySet Name="StockCheckDetails" EntityType="ApplicationDataStore.StockCheckDetail" store:Type="Tables" Schema="dbo" Table="StockCheckDetails" />
+    <EntitySet Name="StockChecks" EntityType="ApplicationDataStore.StockCheck" store:Type="Tables" Schema="dbo" Table="StockChecks" />
+    <EntitySet Name="Suppliers" EntityType="ApplicationDataStore.Supplier" store:Type="Tables" Schema="dbo" Table="Suppliers" />
+    <AssociationSet Name="Customer_Order" Association="ApplicationDataStore.Customer_Order">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="Order_Employee" Association="ApplicationDataStore.Order_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="StockCheck_Employee" Association="ApplicationDataStore.StockCheck_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="StockCheck" EntitySet="StockChecks" />
+    </AssociationSet>
+    <AssociationSet Name="ProductSubscriber_Employee" Association="ApplicationDataStore.ProductSubscriber_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="ProductSubscriber" EntitySet="ProductSubscribers" />
+    </AssociationSet>
+    <AssociationSet Name="OrderDetail_Order" Association="ApplicationDataStore.OrderDetail_Order">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="OrderDetail" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="ProductCategory_Product" Association="ApplicationDataStore.ProductCategory_Product">
+      <End Role="ProductCategory" EntitySet="ProductCategories" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="OrderDetail_Product" Association="ApplicationDataStore.OrderDetail_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="OrderDetail" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="PurchaseOrderDetail_Product" Association="ApplicationDataStore.PurchaseOrderDetail_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="PurchaseOrderDetail" EntitySet="PurchaseOrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="StockCheckDetail_Product" Association="ApplicationDataStore.StockCheckDetail_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="StockCheckDetail" EntitySet="StockCheckDetails" />
+    </AssociationSet>
+    <AssociationSet Name="ProductSubscriber_Product" Association="ApplicationDataStore.ProductSubscriber_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="ProductSubscriber" EntitySet="ProductSubscribers" />
+    </AssociationSet>
+    <AssociationSet Name="PurchaseOrderDetail_PurchaseOrder" Association="ApplicationDataStore.PurchaseOrderDetail_PurchaseOrder">
+      <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+      <End Role="PurchaseOrderDetail" EntitySet="PurchaseOrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="PurchaseOrder_ShippingMethod" Association="ApplicationDataStore.PurchaseOrder_ShippingMethod">
+      <End Role="ShippingMethod" EntitySet="ShippingMethods" />
+      <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+    </AssociationSet>
+    <AssociationSet Name="OrderDetail_ShippingMethod" Association="ApplicationDataStore.OrderDetail_ShippingMethod">
+      <End Role="ShippingMethod" EntitySet="ShippingMethods" />
+      <End Role="OrderDetail" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="StockCheckDetail_StockCheck" Association="ApplicationDataStore.StockCheckDetail_StockCheck">
+      <End Role="StockCheck" EntitySet="StockChecks" />
+      <End Role="StockCheckDetail" EntitySet="StockCheckDetails" />
+    </AssociationSet>
+    <AssociationSet Name="PurchaseOrder_Supplier" Association="ApplicationDataStore.PurchaseOrder_Supplier">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerName" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Address" Type="nvarchar" MaxLength="100" />
+    <Property Name="City" Type="nvarchar" MaxLength="100" />
+    <Property Name="State" Type="nvarchar" MaxLength="100" />
+    <Property Name="Country" Type="nvarchar" MaxLength="100" />
+    <Property Name="PostCode" Type="nvarchar" MaxLength="15" />
+    <Property Name="Email" Type="nvarchar" MaxLength="255" />
+    <Property Name="Phone1" Type="nvarchar" MaxLength="255" />
+    <Property Name="Phone2" Type="nvarchar" MaxLength="255" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="255" />
+    <Property Name="Website" Type="nvarchar" MaxLength="255" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="75" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="75" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="75">
+      <UniqueIndexAnnotation xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </Property>
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Current" Type="bit" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UnitsOrdered" Type="int" Nullable="false" />
+    <Property Name="UnitsShipped" Type="int" />
+    <Property Name="DateOrderShipped" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="OrderDetail_Order" Type="int" Nullable="false" />
+    <Property Name="OrderDetail_Product" Type="int" Nullable="false" />
+    <Property Name="OrderDetail_ShippingMethod" Type="int" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="OrderReference" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="OrderDate" Type="datetime" Nullable="false" />
+    <Property Name="OrderPaidFor" Type="bit" Nullable="false" />
+    <Property Name="DatePaid" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="Customer_Order" Type="int" Nullable="false" />
+    <Property Name="Order_Employee" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Category" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="ProductDescription" Type="nvarchar" MaxLength="255" />
+    <Property Name="UnitPrice" Type="decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="ReorderLevel" Type="smallint" Nullable="false" />
+    <Property Name="Discontinued" Type="bit" Nullable="false" />
+    <Property Name="LeadTime" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="ProductCategory_Product" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductSubscriber">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="ProductSubscriber_Employee" Type="int" Nullable="false" />
+    <Property Name="ProductSubscriber_Product" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PurchaseOrderDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UnitsOrdered" Type="int" Nullable="false" />
+    <Property Name="Discount" Type="decimal" Nullable="false" Precision="18" Scale="9" />
+    <Property Name="UnitPricePaid" Type="decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="UnitsReceived" Type="int" />
+    <Property Name="DateRecieved" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="PurchaseOrderDetails_Product" Type="int" Nullable="false" />
+    <Property Name="PurchaseOrderDetails_PurchaseOrder" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PurchaseOrder">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PurchaseOrderNumber" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="PurchaseOrderDescription" Type="nvarchar" MaxLength="255" />
+    <Property Name="DatePurchaseOrderPlaced" Type="datetime" Nullable="false" />
+    <Property Name="DatePurchaseOrderRequired" Type="datetime" Nullable="false" />
+    <Property Name="DatePurchaseOrderShipped" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="PurchaseOrder_ShippingMethod" Type="int" />
+    <Property Name="PurchaseOrder_Supplier" Type="int" />
+  </EntityType>
+  <EntityType Name="ShippingMethod">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Shipper" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="StockCheckDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UnitsExpected" Type="int" Nullable="false" />
+    <Property Name="UnitsFound" Type="int" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="Shrinkage_Product" Type="int" Nullable="false" />
+    <Property Name="StockCheckDetails_StockCheck" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StockCheck">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="StockCheckDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="StockCheck_Employee" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SupplierName" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Address" Type="nvarchar" MaxLength="100" />
+    <Property Name="City" Type="nvarchar" MaxLength="100" />
+    <Property Name="State" Type="nvarchar" MaxLength="100" />
+    <Property Name="Country" Type="nvarchar" MaxLength="100" />
+    <Property Name="PostCode" Type="nvarchar" MaxLength="15" />
+    <Property Name="Email" Type="nvarchar" MaxLength="255" />
+    <Property Name="Phone1" Type="nvarchar" MaxLength="255" />
+    <Property Name="Phone2" Type="nvarchar" MaxLength="255" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="255" />
+    <Property Name="Website" Type="nvarchar" MaxLength="255" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <Association Name="Customer_Order">
+    <End Role="Customer" Type="ApplicationDataStore.Customer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Order" Type="ApplicationDataStore.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="Customer_Order" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Order_Employee">
+    <End Role="Employee" Type="ApplicationDataStore.Employee" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="Order" Type="ApplicationDataStore.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="Order_Employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StockCheck_Employee">
+    <End Role="Employee" Type="ApplicationDataStore.Employee" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="StockCheck" Type="ApplicationDataStore.StockCheck" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StockCheck">
+        <PropertyRef Name="StockCheck_Employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductSubscriber_Employee">
+    <End Role="Employee" Type="ApplicationDataStore.Employee" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProductSubscriber" Type="ApplicationDataStore.ProductSubscriber" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductSubscriber">
+        <PropertyRef Name="ProductSubscriber_Employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrderDetail_Order">
+    <End Role="Order" Type="ApplicationDataStore.Order" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OrderDetail" Type="ApplicationDataStore.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="OrderDetail_Order" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductCategory_Product">
+    <End Role="ProductCategory" Type="ApplicationDataStore.ProductCategory" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="Product" Type="ApplicationDataStore.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="ProductCategory_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrderDetail_Product">
+    <End Role="Product" Type="ApplicationDataStore.Product" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="OrderDetail" Type="ApplicationDataStore.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="OrderDetail_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PurchaseOrderDetail_Product">
+    <End Role="Product" Type="ApplicationDataStore.Product" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="PurchaseOrderDetail" Type="ApplicationDataStore.PurchaseOrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PurchaseOrderDetail">
+        <PropertyRef Name="PurchaseOrderDetails_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StockCheckDetail_Product">
+    <End Role="Product" Type="ApplicationDataStore.Product" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="StockCheckDetail" Type="ApplicationDataStore.StockCheckDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StockCheckDetail">
+        <PropertyRef Name="Shrinkage_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductSubscriber_Product">
+    <End Role="Product" Type="ApplicationDataStore.Product" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProductSubscriber" Type="ApplicationDataStore.ProductSubscriber" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductSubscriber">
+        <PropertyRef Name="ProductSubscriber_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PurchaseOrderDetail_PurchaseOrder">
+    <End Role="PurchaseOrder" Type="ApplicationDataStore.PurchaseOrder" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PurchaseOrderDetail" Type="ApplicationDataStore.PurchaseOrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PurchaseOrder">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PurchaseOrderDetail">
+        <PropertyRef Name="PurchaseOrderDetails_PurchaseOrder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PurchaseOrder_ShippingMethod">
+    <End Role="ShippingMethod" Type="ApplicationDataStore.ShippingMethod" Multiplicity="0..1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="PurchaseOrder" Type="ApplicationDataStore.PurchaseOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShippingMethod">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PurchaseOrder">
+        <PropertyRef Name="PurchaseOrder_ShippingMethod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrderDetail_ShippingMethod">
+    <End Role="ShippingMethod" Type="ApplicationDataStore.ShippingMethod" Multiplicity="0..1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="OrderDetail" Type="ApplicationDataStore.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShippingMethod">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="OrderDetail_ShippingMethod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StockCheckDetail_StockCheck">
+    <End Role="StockCheck" Type="ApplicationDataStore.StockCheck" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="StockCheckDetail" Type="ApplicationDataStore.StockCheckDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StockCheck">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StockCheckDetail">
+        <PropertyRef Name="StockCheckDetails_StockCheck" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PurchaseOrder_Supplier">
+    <End Role="Supplier" Type="ApplicationDataStore.Supplier" Multiplicity="0..1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="PurchaseOrder" Type="ApplicationDataStore.PurchaseOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PurchaseOrder">
+        <PropertyRef Name="PurchaseOrder_Supplier" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

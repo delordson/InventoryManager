@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DatabaseAdministratorConnectionString" description="Connection used to create or update the application database." defaultValue="" tags="SQLConnectionString" />
+  <parameter name="DatabaseServer" description="Name of the server that hosts the application database. Must match the server specified in the connection string." defaultValue="" tags="SQL" />
+  <parameter name="DatabaseName" description="Name of the application database. Must match the database specified in the connection string." defaultValue="InventoryManagerAppData" tags="SQL">
+    <parameterEntry kind="SqlCommandVariable" scope="InventoryManagerApp.sql" match="DatabaseName" />
+  </parameter>
+  <parameter name="DatabaseUserName" description="User name that the application will use to connect to the application database." defaultValue="" tags="SQL">
+    <parameterEntry kind="SqlCommandVariable" scope="InventoryManagerApp.sql" match="DatabaseUserName" />
+  </parameter>
+  <parameter name="DatabaseUserPassword" description="Password for the database user name." defaultValue="" tags="SQL,Password,New">
+    <parameterEntry kind="SqlCommandVariable" scope="InventoryManagerApp.sql" match="DatabaseUserPassword" />
+  </parameter>
+  <parameter name="DefaultDataPath" description="" defaultValue="" tags="SQL,Hidden">
+    <parameterEntry kind="SqlCommandVariable" scope="InventoryManagerApp.sql" match="DefaultDataPath" />
+  </parameter>
+  <parameter name="dbFullSql_Path" description="" defaultValue="{DatabaseAdministratorConnectionString}" tags="Hidden">
+    <parameterEntry kind="ProviderPath" scope="dbFullSql" match="InventoryManagerApp.sql" />
+  </parameter>
+  <parameter name="Update web.config connection string" description="" defaultValue="Data Source={DatabaseServer};Database={DatabaseName};uid={DatabaseUserName};Pwd={DatabaseUserPassword};" tags="Hidden">
+    <parameterEntry kind="XmlFile" scope="web.config" match="//connectionStrings/add[@name='_IntrinsicData']/@connectionString" />
+  </parameter>
+  <parameter name="InventoryManagerApp_IisWebApplication" description="IIS Web Application content location" defaultValue="Default Web Site/InventoryManagerApp" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\BitBucket\\InventoryManagerApp\\InventoryManagerApp\\bin\\Release\\app\.publish\\$" />
+  </parameter>
+</parameters>

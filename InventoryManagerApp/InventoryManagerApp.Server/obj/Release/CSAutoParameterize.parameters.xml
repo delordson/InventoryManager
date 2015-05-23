@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="_IntrinsicData-Web.config Connection String" description="_IntrinsicData Connection String used in web.config by the application to access the database." defaultValue="Data Source=|SqlExpressInstanceName|;AttachDbFilename=|ApplicationDatabasePath|;Integrated Security=True;Connect Timeout=30;MultipleActiveResultSets=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\BitBucket\\InventoryManagerApp\\InventoryManagerApp\\bin\\Release\\app\.publish\\Web\.config$" match="/configuration/connectionStrings/add[@name='_IntrinsicData']/@connectionString" />
+  </parameter>
+</parameters>

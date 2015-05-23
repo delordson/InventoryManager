@@ -1,0 +1,40 @@
+﻿<Deployment xmlns="http://schemas.microsoft.com/client/2007/deployment" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" EntryPointAssembly="Microsoft.LightSwitch.Client.Internal" EntryPointType="Microsoft.LightSwitch.Runtime.Shell.Implementation.App" RuntimeVersion="5.0.61118.0">
+  <Deployment.Parts>
+    <AssemblyPart x:Name="InventoryManagerApp.DesktopClient" Source="InventoryManagerApp.DesktopClient.dll" />
+    <AssemblyPart x:Name="Microsoft.CSharp" Source="Microsoft.CSharp.dll" />
+    <AssemblyPart x:Name="Microsoft.Data.Edm.SL" Source="Microsoft.Data.Edm.SL.dll" />
+    <AssemblyPart x:Name="Microsoft.Data.Services.Client.SL" Source="Microsoft.Data.Services.Client.SL.dll" />
+    <AssemblyPart x:Name="Microsoft.LightSwitch.Base.Client" Source="Microsoft.LightSwitch.Base.Client.dll" />
+    <AssemblyPart x:Name="Microsoft.LightSwitch.Client" Source="Microsoft.LightSwitch.Client.dll" />
+    <AssemblyPart x:Name="Microsoft.LightSwitch.Client.Internal" Source="Microsoft.LightSwitch.Client.Internal.dll" />
+    <AssemblyPart x:Name="Microsoft.LightSwitch.CodeMarker" Source="Microsoft.LightSwitch.CodeMarker.dll" />
+    <AssemblyPart x:Name="Microsoft.LightSwitch.Cosmopolitan.Client" Source="Microsoft.LightSwitch.Cosmopolitan.Client.dll" />
+    <AssemblyPart x:Name="Microsoft.LightSwitch" Source="Microsoft.LightSwitch.dll" />
+    <AssemblyPart x:Name="Microsoft.LightSwitch.ExportProvider" Source="Microsoft.LightSwitch.ExportProvider.dll" />
+    <AssemblyPart x:Name="Microsoft.LightSwitch.Extensions.Client" Source="Microsoft.LightSwitch.Extensions.Client.dll" />
+    <AssemblyPart x:Name="Microsoft.LightSwitch.Extensions.Design.Client" Source="Microsoft.LightSwitch.Extensions.Design.Client.dll" />
+    <AssemblyPart x:Name="Microsoft.LightSwitch.ManifestService.Client" Source="Microsoft.LightSwitch.ManifestService.Client.dll" />
+    <AssemblyPart x:Name="Microsoft.LightSwitch.Model.Xaml.Client" Source="Microsoft.LightSwitch.Model.Xaml.Client.dll" />
+    <AssemblyPart x:Name="Microsoft.LightSwitch.RuntimeEditor.Internal" Source="Microsoft.LightSwitch.RuntimeEditor.Internal.dll" />
+    <AssemblyPart x:Name="Microsoft.LightSwitch.SDKProxy" Source="Microsoft.LightSwitch.SDKProxy.dll" />
+    <AssemblyPart x:Name="System.ComponentModel.Composition" Source="System.ComponentModel.Composition.dll" />
+    <AssemblyPart x:Name="System.ComponentModel.DataAnnotations" Source="System.ComponentModel.DataAnnotations.dll" />
+    <AssemblyPart x:Name="System.ServiceModel.DomainServices.Client.Web" Source="System.ServiceModel.DomainServices.Client.Web.dll" />
+    <AssemblyPart x:Name="System.ServiceModel.Extensions" Source="System.ServiceModel.Extensions.dll" />
+    <AssemblyPart x:Name="System.ServiceModel.PollingDuplex" Source="System.ServiceModel.PollingDuplex.dll" />
+    <AssemblyPart x:Name="System.ServiceModel.Web.Extensions" Source="System.ServiceModel.Web.Extensions.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.Data" Source="System.Windows.Controls.Data.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.Data.Input" Source="System.Windows.Controls.Data.Input.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls" Source="System.Windows.Controls.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.DomainServices" Source="System.Windows.Controls.DomainServices.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.Input" Source="System.Windows.Controls.Input.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.Navigation" Source="System.Windows.Controls.Navigation.dll" />
+    <AssemblyPart x:Name="System.Windows.Data" Source="System.Windows.Data.dll" />
+    <AssemblyPart x:Name="System.Xml.Linq" Source="System.Xml.Linq.dll" />
+    <AssemblyPart x:Name="System.ServiceModel.DomainServices.Client" Source="System.ServiceModel.DomainServices.Client.dll" />
+    <AssemblyPart x:Name="Microsoft.Data.OData.SL" Source="Microsoft.Data.OData.SL.dll" />
+    <AssemblyPart x:Name="System.Xml.Serialization" Source="System.Xml.Serialization.dll" />
+    <AssemblyPart x:Name="System.Spatial.SL" Source="System.Spatial.SL.dll" />
+    <AssemblyPart x:Name="Microsoft.VisualStudio.Debugger.Runtime.Dll" Source="Microsoft.VisualStudio.Debugger.Runtime.Dll.dll" />
+  </Deployment.Parts>
+</Deployment>

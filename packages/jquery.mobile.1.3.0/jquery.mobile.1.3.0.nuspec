@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>jquery.mobile</id>
+    <version>1.3.0</version>
+    <title>jQuery Mobile</title>
+    <authors>The jQuery Project</authors>
+    <owners>The jQuery Project</owners>
+    <licenseUrl>http://jquery.org/license</licenseUrl>
+    <projectUrl>http://jquerymobile.com</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A unified user interface system across all popular mobile device platforms, built on the rock-solid jQuery and jQuery UI foundation. Its lightweight code is built with progressive enhancement, and has a flexible, easily themeable design.
+    NOTE: This package is maintained on behalf of the library owners by the NuGet Community Packages project at http://nugetpackages.codeplex.com/</description>
+    <summary>A unified user interface system across all popular mobile device platforms, built on the rock-solid jQuery and jQuery UI foundation.</summary>
+    <tags>jquery plugins phone touch ipad blackberry mobile</tags>
+    <dependencies>
+      <dependency id="jquery" version="1.9.1" />
+    </dependencies>
+    <references />
+  </metadata>
+</package>

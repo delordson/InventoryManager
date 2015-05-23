@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <dbFullSql path="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\bin\Release\InventoryManagerApp.sql" transacted="false" />
+  <IisApp path="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\bin\Release\app.publish\" />
+</sitemanifest>

@@ -1,0 +1,88 @@
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\LSSvcGeneratorsTask.mcs
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\LSResourceGeneratorsTask.mcs
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\LSServerCodeGeneratorsTask.mcs
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Application.Server.dll.config
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Application.Server.dll
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Application.Server.pdb
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Microsoft.Data.Edm.dll
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Microsoft.Data.OData.dll
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Microsoft.Data.Services.Client.dll
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Microsoft.Data.Services.dll
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Microsoft.LightSwitch.AppBridge.dll
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Microsoft.LightSwitch.CodeMarker.dll
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Microsoft.LightSwitch.dll
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Microsoft.LightSwitch.ExportProvider.dll
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Microsoft.LightSwitch.Extensions.Server.dll
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Microsoft.LightSwitch.ManifestService.dll
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Microsoft.LightSwitch.Model.Xaml.dll
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Microsoft.LightSwitch.Server.dll
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Microsoft.LightSwitch.Server.Host.dll
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.ServiceModel.DomainServices.EntityFramework.dll
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.ServiceModel.DomainServices.Hosting.dll
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.ServiceModel.DomainServices.Hosting.OData.dll
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.ServiceModel.DomainServices.Server.dll
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.ServiceModel.PollingDuplex.dll
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.Spatial.dll
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Microsoft.LightSwitch.xml
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Microsoft.LightSwitch.Server.xml
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.ServiceModel.DomainServices.EntityFramework.xml
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.ServiceModel.DomainServices.Hosting.xml
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.ServiceModel.DomainServices.Hosting.OData.xml
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.ServiceModel.DomainServices.Server.xml
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\obj\Debug\Application.Server.dll
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\obj\Debug\Application.Server.pdb
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\obj\Debug\InventoryManagerApp.Server.csprojResolveAssemblyReference.cache
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Newtonsoft.Json.dll
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.Web.Http.dll
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.Web.Http.WebHost.dll
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Newtonsoft.Json.xml
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.Web.Http.xml
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.Web.Http.WebHost.xml
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\LSSvcGeneratorsTask.mcs
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\LSResourceGeneratorsTask.mcs
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\LSServerCodeGeneratorsTask.mcs
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Application.Server.dll.config
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Application.Server.dll
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Application.Server.pdb
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Microsoft.Data.Edm.dll
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Microsoft.Data.OData.dll
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Microsoft.Data.Services.Client.dll
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Microsoft.Data.Services.dll
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Microsoft.LightSwitch.AppBridge.dll
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Microsoft.LightSwitch.CodeMarker.dll
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Microsoft.LightSwitch.dll
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Microsoft.LightSwitch.ExportProvider.dll
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Microsoft.LightSwitch.Extensions.Server.dll
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Microsoft.LightSwitch.ManifestService.dll
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Microsoft.LightSwitch.Model.Xaml.dll
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Microsoft.LightSwitch.Server.dll
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Microsoft.LightSwitch.Server.Host.dll
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Newtonsoft.Json.dll
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.Net.Http.Formatting.dll
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.ServiceModel.DomainServices.EntityFramework.dll
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.ServiceModel.DomainServices.Hosting.dll
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.ServiceModel.DomainServices.Hosting.OData.dll
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.ServiceModel.DomainServices.Server.dll
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.ServiceModel.PollingDuplex.dll
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.Spatial.dll
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.Web.Http.dll
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.Web.Http.WebHost.dll
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Newtonsoft.Json.xml
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.Net.Http.Formatting.xml
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.Web.Http.xml
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.Web.Http.WebHost.xml
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Microsoft.LightSwitch.xml
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\Microsoft.LightSwitch.Server.xml
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.ServiceModel.DomainServices.EntityFramework.xml
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.ServiceModel.DomainServices.Hosting.xml
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.ServiceModel.DomainServices.Hosting.OData.xml
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\bin\Debug\System.ServiceModel.DomainServices.Server.xml
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\obj\Debug\InventoryManagerApp.Server.csprojResolveAssemblyReference.cache
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\obj\Debug\Application.Server.dll
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\obj\Debug\Application.Server.pdb

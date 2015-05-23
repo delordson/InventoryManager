@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|AnyCPU">
+      <Configuration>Debug</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|AnyCPU">
+      <Configuration>Release</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(Configuration)' != 'Release' ">
+    <UseDesignTimeFeatures>true</UseDesignTimeFeatures>
+  </PropertyGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{ebb6117b-fd7b-4014-ba69-b46bda4120c8}</ProjectGuid>
+    <LightSwitchVersion>v4.0</LightSwitchVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\LightSwitch\v4.0\MobileClient\Microsoft.LightSwitch.MobileClient.Default.props" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\LightSwitch\v4.0\MobileClient\Microsoft.LightSwitch.MobileClient.props" />
+  <PropertyGroup>
+    <!--TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <TargetPlatformVersion>8.0</TargetPlatformVersion-->
+    <LightSwitchProjectTypeV3>Client</LightSwitchProjectTypeV3>
+    <LightSwitchProjectSubType>JScript</LightSwitchProjectSubType>
+    <ProjectTypeGuids>{DA98106F-DEFA-4A62-8804-0BD2F166A45D};{262852c6-cd72-467d-83fe-5eeb1973a190}</ProjectTypeGuids>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <SupportedCultures>en-US</SupportedCultures>
+    <DefaultPlatform>AnyCPU</DefaultPlatform>
+    <ClientProjectName>HTMLClient</ClientProjectName>
+    <ServerProjectReference>..\InventoryManagerApp.Server\InventoryManagerApp.Server.csproj</ServerProjectReference>
+    <LightSwitchDisplayName>HTMLClient</LightSwitchDisplayName>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Content\dark-theme-2.0.0.css" />
+    <Content Include="Content\Images\MobileCustomers.png" />
+    <Content Include="Content\Images\MobileOrders.png" />
+    <Content Include="Content\Images\MobileProductCategories.png" />
+    <Content Include="Content\Images\MobileProducts.png" />
+    <Content Include="Content\Images\MobileShippingMethods.png" />
+    <Content Include="Content\Images\MobileStockCheck.png" />
+    <Content Include="Content\Images\ShippingMethods.png" />
+    <Content Include="Content\Images\ajax-loader.gif" />
+    <Content Include="Content\Images\ProductCategories.png" />
+    <Content Include="Content\Images\Orders.png" />
+    <Content Include="Content\Images\Customers.png" />
+    <Content Include="Content\Images\Products.png" />
+    <Content Include="Content\Images\StockCheck.png" />
+    <Content Include="Content\Images\PurchaseOrders.png" />
+    <Content Include="Content\Images\Employees.png" />
+    <Content Include="Content\Images\icons-18-black.png" />
+    <Content Include="Content\Images\icons-18-white.png" />
+    <Content Include="Content\Images\icons-36-black.png" />
+    <Content Include="Content\Images\icons-36-white.png" />
+    <Content Include="Content\Images\MobilePurchaseOrders.png" />
+    <Content Include="Content\Images\MobileEmployees.png" />
+    <Content Include="Content\Images\MobileSuppliers.png" />
+    <Content Include="Content\Images\msls-black-icons-18.png" />
+    <Content Include="Content\Images\msls-black-icons-36.png" />
+    <Content Include="Content\Images\msls-loader-dark.gif" />
+    <Content Include="Content\Images\msls-loader-light.gif" />
+    <Content Include="Content\Images\msls-white-icons-18.png" />
+    <Content Include="Content\Images\msls-white-icons-36.png" />
+    <Content Include="Content\Images\msls-blue-icons-36.png" />
+    <Content Include="Content\Images\Suppliers.png" />
+    <Content Include="Content\jquery.mobile-1.3.0.css" />
+    <Content Include="Content\jquery.mobile-1.3.0.min.css" />
+    <Content Include="Content\jquery.mobile.structure-1.3.0.css" />
+    <Content Include="Content\jquery.mobile.structure-1.3.0.min.css" />
+    <Content Include="Content\jquery.mobile.theme-1.3.0.css" />
+    <Content Include="Content\jquery.mobile.theme-1.3.0.min.css" />
+    <Content Include="Content\light-theme-2.0.0.css" />
+    <Content Include="Content\msls-2.0.0.css" />
+    <Content Include="Content\msls-2.0.0.min.css" />
+    <Content Include="Content\msls-dark-2.0.0.css" />
+    <Content Include="Content\msls-light-2.0.0.css" />
+    <Content Include="default.htm" />
+    <Content Include="Content\user-customization.css" />
+    <Content Include="Content\Images\user-logo.png" />
+    <Content Include="Content\Images\user-splash-screen.png" />
+    <Content Include="Content\Web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Screens\AddEditCustomer.lsml.js">
+      <DependentUpon>AddEditCustomer.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\AddEditEmployee.lsml.js">
+      <DependentUpon>AddEditEmployee.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\AddEditOrder.lsml.js">
+      <DependentUpon>AddEditOrder.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\AddEditOrderDetail.lsml.js">
+      <DependentUpon>AddEditOrderDetail.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\AddEditProduct.lsml.js">
+      <DependentUpon>AddEditProduct.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\AddEditProductCategory.lsml.js">
+      <DependentUpon>AddEditProductCategory.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\AddEditProductSubscriber.lsml.js">
+      <DependentUpon>AddEditProductSubscriber.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\AddEditPurchaseOrder.lsml.js">
+      <DependentUpon>AddEditPurchaseOrder.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\AddEditPurchaseOrderDetail.lsml.js">
+      <DependentUpon>AddEditPurchaseOrderDetail.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\AddEditShippingMethod.lsml.js">
+      <DependentUpon>AddEditShippingMethod.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\AddEditStockCheck.lsml.js">
+      <DependentUpon>AddEditStockCheck.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\AddEditStockCheckDetail.lsml.js">
+      <DependentUpon>AddEditStockCheckDetail.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\AddEditSupplier.lsml.js">
+      <DependentUpon>AddEditSupplier.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\BrowseCustomers.lsml.js">
+      <DependentUpon>BrowseCustomers.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\BrowseEmployees.lsml.js">
+      <DependentUpon>BrowseEmployees.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\BrowseOrders.lsml.js">
+      <DependentUpon>BrowseOrders.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\BrowseProductCategories.lsml.js">
+      <DependentUpon>BrowseProductCategories.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\BrowseProducts.lsml.js">
+      <DependentUpon>BrowseProducts.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\BrowsePurchaseOrders.lsml.js">
+      <DependentUpon>BrowsePurchaseOrders.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\BrowseShippingMethods.lsml.js">
+      <DependentUpon>BrowseShippingMethods.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\BrowseStockChecks.lsml.js">
+      <DependentUpon>BrowseStockChecks.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\BrowseSuppliers.lsml.js">
+      <DependentUpon>BrowseSuppliers.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\Home.lsml.js">
+      <DependentUpon>Home.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\MobileHome.lsml.js">
+      <DependentUpon>MobileHome.lsml</DependentUpon>
+    </Content>
+    <Content Include="Scripts\datajs-1.1.1.js" />
+    <Content Include="Scripts\datajs-1.1.1.min.js" />
+    <Content Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery.mobile-1.3.0-vsdoc.js" />
+    <Content Include="Scripts\jquery.mobile-1.3.0.js" />
+    <Content Include="Scripts\jquery.mobile-1.3.0.min.js" />
+    <Content Include="Scripts\msls.js" />
+    <Content Include="Scripts\msls-2.0.0-vsdoc.js" />
+    <Content Include="Scripts\msls-2.0.0.js" />
+    <Content Include="Scripts\msls-2.0.0.min.js" />
+    <Content Include="Scripts\winjs-1.0.js" />
+    <Content Include="Scripts\winjs-1.0.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <ServiceMetadataReference Include="..\InventoryManagerApp.Server\InventoryManagerApp.Server.csproj">
+      <Visible>false</Visible>
+    </ServiceMetadataReference>
+  </ItemGroup>
+  <ItemGroup>
+    <LightSwitchModel Include="Properties\Client.lsml">
+      <ProjectCritical>true</ProjectCritical>
+    </LightSwitchModel>
+    <LightSwitchModel Include="Properties\Proxies.lsml" />
+    <LightSwitchModel Include="Screens\AddEditCustomer.lsml" />
+    <LightSwitchModel Include="Screens\AddEditEmployee.lsml" />
+    <LightSwitchModel Include="Screens\AddEditOrder.lsml" />
+    <LightSwitchModel Include="Screens\AddEditOrderDetail.lsml" />
+    <LightSwitchModel Include="Screens\AddEditProduct.lsml" />
+    <LightSwitchModel Include="Screens\AddEditProductCategory.lsml" />
+    <LightSwitchModel Include="Screens\AddEditProductSubscriber.lsml" />
+    <LightSwitchModel Include="Screens\AddEditPurchaseOrder.lsml" />
+    <LightSwitchModel Include="Screens\AddEditPurchaseOrderDetail.lsml" />
+    <LightSwitchModel Include="Screens\AddEditShippingMethod.lsml" />
+    <LightSwitchModel Include="Screens\AddEditStockCheck.lsml" />
+    <LightSwitchModel Include="Screens\AddEditStockCheckDetail.lsml" />
+    <LightSwitchModel Include="Screens\AddEditSupplier.lsml" />
+    <LightSwitchModel Include="Screens\BrowseCustomers.lsml" />
+    <LightSwitchModel Include="Screens\BrowseEmployees.lsml" />
+    <LightSwitchModel Include="Screens\BrowseOrders.lsml" />
+    <LightSwitchModel Include="Screens\BrowseProductCategories.lsml" />
+    <LightSwitchModel Include="Screens\BrowseProducts.lsml" />
+    <LightSwitchModel Include="Screens\BrowsePurchaseOrders.lsml" />
+    <LightSwitchModel Include="Screens\BrowseShippingMethods.lsml" />
+    <LightSwitchModel Include="Screens\BrowseStockChecks.lsml" />
+    <LightSwitchModel Include="Screens\BrowseSuppliers.lsml" />
+    <LightSwitchModel Include="Screens\Home.lsml" />
+    <LightSwitchModel Include="Screens\MobileHome.lsml" />
+  </ItemGroup>
+  <ItemGroup>
+    <_ClientBuildFile Include="GeneratedArtifacts\model.json">
+      <SubFolder>Content\Resources\Generated</SubFolder>
+    </_ClientBuildFile>
+    <_ClientBuildFile Include="GeneratedArtifacts\data.js">
+      <SubFolder>Scripts\Generated</SubFolder>
+    </_ClientBuildFile>
+    <_ClientBuildFile Include="GeneratedArtifacts\viewModel.js">
+      <SubFolder>Scripts\Generated</SubFolder>
+    </_ClientBuildFile>
+    <_ClientBuildFile Include="GeneratedArtifacts\usercode.js">
+      <SubFolder>Scripts\Generated</SubFolder>
+    </_ClientBuildFile>
+    <_ClientBuildFile Include="GeneratedArtifacts\resources.js">
+      <SubFolder>Scripts\Generated</SubFolder>
+    </_ClientBuildFile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UserCode\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\LightSwitch\v4.0\MobileClient\Microsoft.LightSwitch.MobileClient.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\LightSwitch\v4.0\Microsoft.LightSwitch.Build.Tasks.targets" />
+  <!-- Redefine the targets to be empty -->
+  <Target Name="GetXapOutputFile" />
+  <PropertyGroup>
+    <AppxPackage>false</AppxPackage>
+    <AppxGeneratePriEnabled>false</AppxGeneratePriEnabled>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

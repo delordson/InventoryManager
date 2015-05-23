@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Microsoft.LightSwitch.Client.JavaScript.Runtime</id>
+    <version>2.0.0.0</version>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <projectUrl>http://go.microsoft.com/fwlink/?LinkID=277089</projectUrl>
+    <licenseUrl>http://go.microsoft.com/fwlink/?LinkID=286972</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Includes the runtime environment and themes for Visual Studio LightSwitch HTML applications</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright Microsoft Corporation</copyright>
+    <tags>Microsoft lightswitch javascript html</tags>
+    <dependencies>
+      <dependency id="jquery" version="[1.9.1,2.0.0)" />
+      <dependency id="jquery.mobile" version="[1.3.0,1.4.0)" />
+      <dependency id="datajs" version="1.1.1" />
+    </dependencies>
+  </metadata>
+</package>

@@ -1,0 +1,2329 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>System.ServiceModel.DomainServices.Hosting.OData</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.ServiceModel.DomainServices.Hosting.Local.OperationException">
+            <summary>
+            This exception is raised by generated <see cref="T:System.ServiceModel.DomainServices.Server.DomainService"/> proxies 
+            when errors are encountered during invocation of <see cref="T:System.ServiceModel.DomainServices.Server.DomainService"/> 
+            operations.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceModel.DomainServices.Hosting.Local.OperationException.#ctor(System.String,System.ServiceModel.DomainServices.Server.ValidationResultInfo)">
+            <summary>
+            Initializes a new <see cref="T:Microsoft.ServiceModel.DomainServices.Hosting.Local.OperationException"/> instance.
+            </summary>
+            <param name="message">A message describing the exception.</param>
+            <param name="operationError">The <see cref="T:System.ServiceModel.DomainServices.Server.ValidationResultInfo"/> associated with this exception.</param>
+            <exception cref="T:System.ArgumentNullException">if <paramref name="operationError"/> is null.</exception>
+        </member>
+        <member name="M:Microsoft.ServiceModel.DomainServices.Hosting.Local.OperationException.#ctor(System.String,System.Collections.Generic.IEnumerable{System.ServiceModel.DomainServices.Server.ValidationResultInfo})">
+            <summary>
+            Initializes a new <see cref="T:Microsoft.ServiceModel.DomainServices.Hosting.Local.OperationException"/> instance.
+            </summary>
+            <param name="message">A message describing the exception.</param>
+            <param name="operationErrors">The <see cref="T:System.ServiceModel.DomainServices.Server.ValidationResultInfo"/>s associated with this exception.</param>
+            <exception cref="T:System.ArgumentNullException">if <paramref name="operationErrors"/> is null.</exception>
+        </member>
+        <member name="P:Microsoft.ServiceModel.DomainServices.Hosting.Local.OperationException.OperationErrors">
+            <summary>
+            Gets a collection of <see cref="T:System.ServiceModel.DomainServices.Server.ValidationResultInfo"/> associated with this exception. 
+            </summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.BinaryTypeUtility.IsTypeBinary(System.Type)">
+            <summary>
+            Returns whether the <paramref name="type"/> <c>is System.Data.Linq.Binary</c>.
+            </summary>
+            <remarks>
+            We test Binary by Type Name so our client framework assembly can avoid taking an
+            assembly reference to <c>System.Data.Linq</c>. If a type is determined to be
+            binary, that type will be used to check reference equality for all subsequent
+            invocations.
+            </remarks>
+            <param name="type">The type to check</param>
+            <returns>Whether the <paramref name="type"/> is binary</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.BinaryTypeUtility.GetByteArrayFromBinary(System.Object)">
+            <summary>
+            Returns the <paramref name="binary"/> converted to a <c>byte[]</c>.
+            </summary>
+            <param name="binary">The binary to convert</param>
+            <returns>The byte[] form of the binary</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.BinaryTypeUtility.GetBinaryFromByteArray(System.Byte[])">
+            <summary>
+            Returns the <paramref name="bytes"/> converted to a <c>System.Data.Linq.Binary</c>.
+            </summary>
+            <param name="bytes">The bytes to convert</param>
+            <returns>The binary form of the bytes</returns>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.TypeUtility.systemAssemblyPublicKeyTokens">
+            <summary>
+            List of public key tokens used for System assemblies
+            </summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.TypeUtility.IsNullableType(System.Type)">
+            <summary>
+            Returns <c>true</c> if the given type is a <see cref="T:System.Nullable"/>
+            </summary>
+            <param name="type">The type to test</param>
+            <returns><c>true</c> if the given type is a nullable type</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.TypeUtility.GetNonNullableType(System.Type)">
+            <summary>
+            If the given type is <see cref="T:System.Nullable"/>, returns the element type,
+            otherwise simply returns the input type
+            </summary>
+            <param name="type">The type to test that may or may not be Nullable</param>
+            <returns>Either the input type or, if it was Nullable, its element type</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.TypeUtility.IsPredefinedType(System.Type)">
+            <summary>
+            Returns <c>true</c> if the given type is a primitive type or one
+            of our standard acceptable simple types, such as <see cref="T:System.String"/>,
+            <see cref="T:System.Guid"/>, or one of our standard generic types whose generic
+            argument is primitive or simple (e.g. Nullable, IEnumerable, IDictionary&lt;TKey,TValue&gt;).
+            </summary>
+            <param name="type">The type to test</param>
+            <returns><c>true</c> if the type is a primitive or standard acceptable types</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.TypeUtility.IsPredefinedListType(System.Type)">
+            <summary>
+            Returns <c>true</c> if the given type is <see cref="T:System.Collections.Generic.IEnumerable`1"/> or an <see cref="T:System.Collections.IList"/> type, 
+            and is either an interface, an array, or has a default constructor.
+            </summary>
+            <param name="type">The type to test</param>
+            <returns><c>true</c> if the type is a primitive or standard acceptable types</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.TypeUtility.IsSupportedCollectionType(System.Type)">
+            <summary>
+            Returns <c>true</c> if specified type is a supported collection Type. This method only checks the collection
+            Type itself, not whether the element Type is supported.
+            </summary>
+            <param name="type">The type to test</param>
+            <returns><c>true</c> if the type is a suppored collection Type.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.TypeUtility.IsPredefinedDictionaryType(System.Type)">
+            <summary>
+            Returns <c>true</c> if <paramref name="type"/> implements <see cref="T:System.Collections.Generic.IDictionary`2"/> and
+            its generic type arguments are acceptable predefined simple types.
+            </summary>
+            <param name="type">The type to test.</param>
+            <returns><c>true</c> if the type is a <see cref="T:System.Collections.Generic.IDictionary`2"/> with supported generic type arguments.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.TypeUtility.IsPredefinedSimpleType(System.Type)">
+            <summary>
+            Returns <c>true</c> if the given type is either primitive or one of our
+            standard acceptable simple types, such as <see cref="T:System.String"/>,
+            <see cref="T:System.Guid"/>, etc
+            </summary>
+            <param name="type">The type to test</param>
+            <returns><c>true</c> if the type is a primitive or standard acceptable types</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.TypeUtility.IsComplexType(System.Type)">
+            <summary>
+            This method determines if the specified Type should be treated as a
+            complex type by the framework.
+            </summary>
+            <param name="type">The type to check.</param>
+            <returns>True if the type is a complex type, false otherwise.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.TypeUtility.IsComplexTypeCollection(System.Type)">
+            <summary>
+            Determines whether the specified type is one of the supported collection types
+            with a complex element type.
+            </summary>
+            <param name="type">The type to check.</param>
+            <returns>True if the type is a supported complex collection type, false otherwise.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.TypeUtility.IsSupportedComplexType(System.Type)">
+            <summary>
+            Determines whether the specified type is a complex type or a collection of
+            complex types.
+            </summary>
+            <param name="type">The type to check.</param>
+            <returns>True if the specified type is a complex type or a collection of
+            complex types, false otherwise.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.TypeUtility.GetElementType(System.Type)">
+            <summary>
+            Returns the underlying element type starting from a given type.
+            </summary>
+            <remarks>
+            Simple types simply return the input type.
+            If the given type is an array, this method returns the array's
+            element type.
+            If the type is a generic type of <see cref="T:System.Collections.IEnumerable"/>, 
+            or <see cref="T:System.Nullable"/>, this method returns the element
+            type of the generic parameter
+            </remarks>
+            <param name="type"><see cref="T:System.Type"/> to examine.</param>
+            <returns>The underlying element type starting from the given type</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.TypeUtility.DefinitionIsAssignableFrom(System.Type,System.Type)">
+            <summary>
+            Determines whether the generic type definition is assignable from the derived type.
+            </summary>
+            <remarks>
+            This behaves just like <see cref="M:System.Type.IsAssignableFrom(System.Type)"/> except that it determines
+            whether any generic type that can be made from the <paramref name="genericTypeDefinition"/>
+            is assignable from <paramref name="derivedType"/>.
+            </remarks>
+            <param name="genericTypeDefinition">The generic type definition</param>
+            <param name="derivedType">The type to determine assignability from</param>
+            <returns>Whether the type definition is assignable from the derived type</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.TypeUtility.DefinitionIsAssignableFrom(System.Type,System.Type,System.Type@)">
+            <summary>
+            Determines whether the generic type definition is assignable from the derived type.
+            </summary>
+            <remarks>
+            This behaves just like <see cref="M:System.Type.IsAssignableFrom(System.Type)"/> except that it determines
+            whether any generic type that can be made from the <paramref name="genericTypeDefinition"/>
+            is assignable from <paramref name="derivedType"/>.
+            </remarks>
+            <param name="genericTypeDefinition">The generic type definition</param>
+            <param name="derivedType">The type to determine assignability from</param>
+            <param name="genericType">The generic base class or interface implemented by the derived
+            type that can be made from the <paramref name="genericTypeDefinition"/>. This value is
+            null when the method return false.
+            </param>
+            <returns>Whether the type definition is assignable from the derived type</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.TypeUtility.IsSystemAssembly(System.Reflection.Assembly)">
+            <summary>
+            Performs a check against an assembly to determine if it's a known
+            System assembly.
+            </summary>
+            <param name="assembly">The assembly to check.</param>
+            <returns><c>true</c> if the assembly is known to be a system assembly, otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.TypeUtility.IsSystemAssembly(System.Reflection.AssemblyName)">
+            <summary>
+            Performs a check against an <see cref="T:System.Reflection.AssemblyName"/> to determine if it's a known
+            System assembly.
+            </summary>
+            <param name="assemblyName">The assembly name to check.</param>
+            <returns><c>true</c> if the assembly is known to be a system assembly, otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.TypeUtility.IsSystemAssembly(System.String)">
+            <summary>
+            Performs a check against an assembly's full name to determine if it's a known
+            System assembly.
+            </summary>
+            <remarks>
+            We can't use Assembly.GetName().GetPublicKeyToken() since that requires FileIOPermissions.
+            </remarks>
+            <param name="assemblyFullName">The <see cref="P:System.Reflection.AssemblyName.FullName"/> to check.</param>
+            <returns><c>true</c> if the assembly is known to be a system assembly, otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.ExceptionHandlingUtility.IsFatal(System.Exception)">
+            <summary>
+            Determines if an <see cref="T:System.Exception"/> is fatal and therefore should not be handled.
+            </summary>
+            <example>
+            try
+            {
+                // Code that may throw
+            }
+            catch (Exception ex)
+            {
+                if (ex.IsFatal())
+                {
+                    throw;
+                }
+                
+                // Handle exception
+            }
+            </example>
+            <param name="exception">The exception to check</param>
+            <returns><c>true</c> if the exception is fatal, otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.SerializationUtility.GetClientType(System.Type)">
+            <summary>
+            Gets the type that should be used on the client for the specified type.
+            </summary>
+            <param name="t">The type to get the client type for.</param>
+            <returns>The client type.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.SerializationUtility.GetClientValue(System.Type,System.Object)">
+            <summary>
+            Gets a value that can be used by the client.
+            </summary>
+            <remarks>
+            This method should be kept in sync with DataContractSurrogateGenerator.EmitToClientConversion.
+            </remarks>
+            <param name="targetType">The type used by the client.</param>
+            <param name="value">The value on the server.</param>
+            <returns>A value that can be used by the client.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.SerializationUtility.GetServerValue(System.Type,System.Object)">
+            <summary>
+            Gets a value that can be used by the server.
+            </summary>
+            <remarks>
+            This method should be kept in sync with DataContractSurrogateGenerator.EmitToServerConversion.
+            </remarks>
+            <param name="targetType">The type used by the server.</param>
+            <param name="value">The value from the client.</param>
+            <returns>A value that can be used by the server.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.SerializationUtility.IsSerializableDataMember(System.ComponentModel.PropertyDescriptor)">
+            <summary>
+            Returns true if the specified property is a data member that should be serialized
+            </summary>
+            <param name="propertyDescriptor">The property to inspect</param>
+            <returns>true if the specified property is a data member that should be serialized</returns>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Server.TypeDescriptorExtensions">
+            <summary>
+            Extension methods for TypeDescriptors
+            </summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Server.TypeDescriptorExtensions.ExplicitAttributes(System.ComponentModel.PropertyDescriptor)">
+            <summary>
+            Extension method to extract only the explicitly specified attributes from a <see cref="T:System.ComponentModel.PropertyDescriptor"/>.
+            </summary>
+            <remarks>
+            Normal TypeDescriptor semantics are to inherit the attributes of a property's type.  This method
+            exists to suppress those inherited attributes.
+            </remarks>
+            <param name="propertyDescriptor">The property descriptor whose attributes are needed.</param>
+            <returns>A new <see cref="T:System.ComponentModel.AttributeCollection"/> stripped of any attributes from the property's type.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Server.TypeDescriptorExtensions.Attributes(System.Type)">
+            <summary>
+            Extension method to extract attributes from a type taking into account the inheritance type of attributes
+            </summary>
+            <remarks>
+            Normal TypeDescriptor semantics are to inherit the attributes of a type's base type, regardless of their 
+            inheritance type.
+            </remarks>
+            <param name="type">The type whose attributes are needed.</param>
+            <returns>A new <see cref="T:System.ComponentModel.AttributeCollection"/> stripped of any incorrectly inherited attributes from the type.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Server.TypeDescriptorExtensions.ContainsAttributeType``1(System.ComponentModel.AttributeCollection)">
+            <summary>
+            Checks to see if an attribute collection contains any attributes of the provided type.
+            </summary>
+            <typeparam name="TAttribute">The attribute type to check for</typeparam>
+            <param name="attributes">The attribute collection to inspect</param>
+            <returns><c>True</c> if an attribute of the provided type is contained in the attribute collection.</returns>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Hosting.OData.DomainDataService">
+            <summary>
+            Data service on top of a domain service.
+            </summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.DomainDataService.provider">
+            <summary>
+            Domain data service IDataServiceProvider implementations.
+            </summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataService.#ctor(System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata,System.Object)">
+            <summary>
+            Creates a new domain data service instance.
+            </summary>
+            <param name="domainServiceDataServiceMetadata">Metadata for the domain data service.</param>
+            <param name="result">Result of current request operation invocation.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataService.InitializeService(System.Data.Services.DataServiceConfiguration)">
+            <summary>Initializes configuration for the service instance.</summary>
+            <param name="config">Configuration settings for the service.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataService.GetService(System.Type)">
+            <summary>
+            Gets the service object of the specified type.
+            </summary>
+            <param name="serviceType">An object that specifies the type of service object to get. </param>
+            <returns>A service object of type serviceType.</returns>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceFactory">
+            <summary>Factory for creating data services on top of a domain service.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceFactory.domainDataServiceMetadata">
+            <summary>DomainService metadata object corresponding to domain service description.</summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceFactory.#ctor(System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata)">
+            <summary>Constructs factory for creating data services using the given domain service description.</summary>
+            <param name="metadata">Data Service metadata object corresponding to domain service description.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceFactory.CreateService(System.Object)">
+            <summary>
+            Creates a service instance where the <paramref name="result"/> represents the root query 
+            result corresponding to current request.
+            </summary>
+            <param name="result">Root query result.</param>
+            <returns>New instance of data service.</returns>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceFactory.DomainDataServiceMetadata">
+            <summary>Get the metadata useful for data service for the domain service.</summary>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata">
+            <summary>Infers data service metadata from domain service description and caches it.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata.containerName">
+            <summary>
+            Container name.
+            </summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata.containerNamespace">
+            <summary>
+            Container namespace.
+            </summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata.types">
+            <summary>
+            Resource types.
+            </summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata.derivedTypes">
+            <summary>
+            Information about each resource type's derived types.
+            </summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata.sets">
+            <summary>
+            Resource sets.
+            </summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata.resourceProperties">
+            <summary>
+            Mapping b/w resource types and their property descriptors.
+            </summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata.serviceOperations">
+            <summary>
+            Service operations.
+            </summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata.#ctor(System.ServiceModel.DomainServices.Server.DomainServiceDescription)">
+            <summary>
+            Constructs and instance of metadata holder for the domain data service.
+            </summary>
+            <param name="domainServiceDescription">Domain service description.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata.ResolveResourceType(System.Type,System.Boolean@)">
+            <summary>
+            Given an input type, detects the corresponding resource type.
+            </summary>
+            <param name="targetType">Input type.</param>
+            <param name="isEnumeration">Returns true if the <paramref name="targetType"/> is IEnumerable or IQueryable.</param>
+            <returns>Corresponding resource type or null.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata.GetPropertyValue(System.Object,System.Data.Services.Providers.ResourceProperty)">
+            <summary>
+            Obtains the property value using PropertyDescriptor corresponding to a ResourceProperty.
+            </summary>
+            <param name="target">Instance whose property is being requested.</param>
+            <param name="resourceProperty">Property to be read.</param>
+            <returns>Value of <paramref name="resourceProperty"/>.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata.IsRootQueryOperation(System.ServiceModel.DomainServices.Server.DomainOperationEntry)">
+            <summary>
+            Checks if the given operation is a candidate for resource set.
+            </summary>
+            <param name="operationEntry">Input operation entry.</param>
+            <returns>true if the operation has no params and returns a sequence, false otherwise.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata.GetNameFromPropertyDescriptor(System.ComponentModel.PropertyDescriptor)">
+            <summary>
+            Gets the name from property descriptor based on DataMember attribute.
+            </summary>
+            <param name="pi">Property descriptor.</param>
+            <returns>Name of the property.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata.LoadDomainServiceDataServiceMetadata(System.ServiceModel.DomainServices.Server.DomainServiceDescription)">
+            <summary>
+            Loads the domain service metadata based on domain service description.
+            </summary>
+            <param name="domainServiceDescription">Domain service description.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata.CollectResourceSets(System.ServiceModel.DomainServices.Server.DomainServiceDescription)">
+            <summary>
+            Infers resource sets and resource types corresponding to query operations in domain service.
+            </summary>
+            <param name="domainServiceDescription">Domain service description.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata.CreateResourceTypeHierarchy(System.ServiceModel.DomainServices.Server.DomainServiceDescription,System.Type)">
+            <summary>
+            Create resource types corresponding to all types in a given CLR type's hierarchy.
+            </summary>
+            <param name="domainServiceDescription">Domain service description.</param>
+            <param name="resourceInstanceType">Type whose hierarchy is being discovered.</param>
+            <returns>ResourceType for <paramref name="resourceInstanceType"/>.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata.LoadResourceTypeProperties">
+            <summary>
+            Loads properties for all the resource types.
+            </summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata.AddResourcePropertyDescriptor(System.Data.Services.Providers.ResourceType,System.Data.Services.Providers.ResourceProperty,System.ComponentModel.PropertyDescriptor)">
+            <summary>
+            Add to the collection of property descriptors for given resource type.
+            </summary>
+            <param name="rt">ResourceType for which to add descriptor.</param>
+            <param name="rp">ResourceProperty to which PropertyDescriptor corresponds.</param>
+            <param name="pi">PropertyDescriptor to add.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata.GetResourceProperty(System.Data.Services.Providers.ResourceType,System.String)">
+            <summary>
+            Get the resource property from a type with the maching name
+            </summary>
+            <param name="resourceType">Resource type for which to look up the property</param>
+            <param name="propertyName">Property name to look up</param>
+            <returns>The resource property.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata.CollectServiceOperations(System.ServiceModel.DomainServices.Server.DomainServiceDescription)">
+            <summary>
+            Infers service operations from domain service description.
+            </summary>
+            <param name="domainServiceDescription">Domain service description.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata.CreateServiceOperation(System.ServiceModel.DomainServices.Server.DomainOperationEntry)">
+            <summary>
+            Create a service operation based on a domain operation entry.
+            </summary>
+            <param name="operation">Domain operation corresponding to the service operation.</param>
+            <returns>ServiceOperation instance mapping to the domain operation.</returns>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata.ContainerNamespace">
+            <summary>
+            Namespace of the container.
+            </summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata.ContainerName">
+            <summary>
+            Name of the container.
+            </summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata.Sets">
+            <summary>
+            Resource sets exposed by domain data service.
+            The key-value pair corresponds to the name of the default query operation and the corresponding resource set.
+            </summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata.Types">
+            <summary>
+            Types exposed by domain data service.
+            </summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata.DerivedTypes">
+            <summary>
+            Type derivation information for each resource type.
+            </summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata.ServiceOperations">
+            <summary>
+            Service operations exposed by domain data service.
+            </summary>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata.DomainDataServiceOperation">
+            <summary>WCF Data Service operation with domain operation information.</summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata.DomainDataServiceOperation.#ctor(System.String,System.Data.Services.Providers.ServiceOperationResultKind,System.Data.Services.Providers.ResourceType,System.Data.Services.Providers.ResourceSet,System.String,System.Collections.Generic.IEnumerable{System.Data.Services.Providers.ServiceOperationParameter},System.ServiceModel.DomainServices.Server.DomainOperation)">
+            <summary>
+            Initializes a new <see cref="T:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata.DomainDataServiceOperation"/> instance.
+            </summary>
+            <param name="name">name of the service operation.</param>
+            <param name="resultKind">Kind of result expected from this operation.</param>
+            <param name="resultType">Type of element of the method result.</param>
+            <param name="resultSet">EntitySet of the result expected from this operation.</param>
+            <param name="method">Protocol (for example HTTP) method the service operation responds to.</param>
+            <param name="parameters">In-order parameters for this operation.</param>
+            <param name="operationKind">Kind of domain service operation.</param>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata.TypeInheritanceComparer">
+            <summary>
+            Compares two types based on inheritance relationship.
+            </summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata.TypeInheritanceComparer.Compare(System.Type,System.Type)">
+            <summary>
+            Compares two types based on inheritance relationship.
+            </summary>
+            <param name="x">Left type.</param>
+            <param name="y">Right type.</param>
+            <returns>0 if equal, -1 if left is base of right, 1 otherwise.</returns>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceProvider">
+            <summary>
+            Data Service provider implementation for a domain service.
+            </summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceProvider.metadata">
+            <summary>Metadata information.</summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceProvider.#ctor(System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata,System.Object)">
+            <summary>Constructs the data service provider object.</summary>
+            <param name="domainServiceDataServiceMetadata">Metadata information for the current instance.</param>
+            <param name="result">Root queryable for current request.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceProvider.TryResolveResourceSet(System.String,System.Data.Services.Providers.ResourceSet@)">
+            <summary>Given the specified name, tries to find a resource set.</summary>
+            <param name="name">Name of the resource set to resolve.</param>
+            <param name="resourceSet">Returns the resolved resource set, null if no resource set for the given name was found.</param>
+            <returns>True if resource set with the given name was found, false otherwise.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceProvider.GetResourceAssociationSet(System.Data.Services.Providers.ResourceSet,System.Data.Services.Providers.ResourceType,System.Data.Services.Providers.ResourceProperty)">
+            <summary>
+            Gets the ResourceAssociationSet instance when given the source association end.
+            </summary>
+            <param name="resourceSet">Resource set of the source association end.</param>
+            <param name="resourceType">Resource type of the source association end.</param>
+            <param name="resourceProperty">Resource property of the source association end.</param>
+            <returns>ResourceAssociationSet instance.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceProvider.TryResolveResourceType(System.String,System.Data.Services.Providers.ResourceType@)">
+            <summary>Given the specified name, tries to find a type.</summary>
+            <param name="name">Name of the type to resolve.</param>
+            <param name="resourceType">Returns the resolved resource type, null if no resource type for the given name was found.</param>
+            <returns>True if we found the resource type for the given name, false otherwise.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceProvider.GetDerivedTypes(System.Data.Services.Providers.ResourceType)">
+            <summary>
+            The method must return a collection of all the types derived from <paramref name="resourceType"/>.
+            The collection returned should NOT include the type passed in as a parameter.
+            An implementer of the interface should return null if the type does not have any derived types (ie. null == no derived types).
+            </summary>
+            <param name="resourceType">Resource to get derived resource types from.</param>
+            <returns>
+            A collection of resource types (<see cref="T:System.Data.Services.Providers.ResourceType"/>) derived from the specified <paramref name="resourceType"/> 
+            or null if there no types derived from the specified <paramref name="resourceType"/> exist.
+            </returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceProvider.HasDerivedTypes(System.Data.Services.Providers.ResourceType)">
+            <summary>
+            Returns true if <paramref name="resourceType"/> represents an Entity Type which has derived Entity Types, else false.
+            </summary>
+            <param name="resourceType">instance of the resource type in question.</param>
+            <returns>True if <paramref name="resourceType"/> represents an Entity Type which has derived Entity Types, else false.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceProvider.TryResolveServiceOperation(System.String,System.Data.Services.Providers.ServiceOperation@)">
+            <summary>Given the specified name, tries to find a service operation.</summary>
+            <param name="name">Name of the service operation to resolve.</param>
+            <param name="serviceOperation">Returns the resolved service operation, null if no service operation was found for the given name.</param>
+            <returns>True if we found the service operation for the given name, false otherwise.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceProvider.GetQueryRootForResourceSet(System.Data.Services.Providers.ResourceSet)">
+            <summary>
+            Returns the IQueryable that represents the resource set.
+            </summary>
+            <param name="resourceSet">resource set representing the entity set.</param>
+            <returns>
+            An IQueryable that represents the set; null if there is 
+            no set for the specified name.
+            </returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceProvider.GetResourceType(System.Object)">
+            <summary>Gets the <see cref="T:System.Data.Services.Providers.ResourceType"/> for the specified <paramref name="target"/>.</summary>
+            <param name="target">Target instance to extract a <see cref="T:System.Data.Services.Providers.ResourceType"/> from.</param>
+            <returns>The <see cref="T:System.Data.Services.Providers.ResourceType"/> that describes this <paramref name="target"/> in this provider.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceProvider.GetPropertyValue(System.Object,System.Data.Services.Providers.ResourceProperty)">
+            <summary>
+            Get the value of the strongly typed property.
+            </summary>
+            <param name="target">instance of the type declaring the property.</param>
+            <param name="resourceProperty">resource property describing the property.</param>
+            <returns>value for the property.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceProvider.GetOpenPropertyValue(System.Object,System.String)">
+            <summary>
+            Get the value of the open property.
+            </summary>
+            <param name="target">instance of the type declaring the open property.</param>
+            <param name="propertyName">name of the open property.</param>
+            <returns>value for the open property.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceProvider.GetOpenPropertyValues(System.Object)">
+            <summary>
+            Get the name and values of all the properties defined in the given instance of an open type.
+            </summary>
+            <param name="target">instance of a open type.</param>
+            <returns>collection of name and values of all the open properties.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceProvider.InvokeServiceOperation(System.Data.Services.Providers.ServiceOperation,System.Object[])">
+            <summary>
+            Invoke the given service operation and returns the results.
+            </summary>
+            <param name="serviceOperation">service operation to invoke.</param>
+            <param name="parameters">value of parameters to pass to the service operation.</param>
+            <returns>returns the result of the service operation. If the service operation returns void, then this should return null.</returns>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceProvider.Result">
+            <summary>Root queryable object.</summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceProvider.ContainerNamespace">
+            <summary>Namespace name for the EDM container.</summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceProvider.ContainerName">
+            <summary>Name of the EDM container</summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceProvider.ResourceSets">
+            <summary>Gets all available resource containers.</summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceProvider.Types">
+            <summary>Returns all the types in this data source.</summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceProvider.ServiceOperations">
+            <summary>Returns all the service operations in this data source.</summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceProvider.CurrentDataSource">
+            <summary>The data source from which data is provided.</summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceProvider.IsNullPropagationRequired">
+            <summary>Gets a value indicating whether null propagation is required in expression trees.</summary>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceContractBehavior">
+            <summary>
+            Applies the instantiation behavior for the DomainService per request on the 
+            domain data service endpoint.
+            </summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceContractBehavior.AddBindingParameters(System.ServiceModel.Description.ContractDescription,System.ServiceModel.Description.ServiceEndpoint,System.ServiceModel.Channels.BindingParameterCollection)">
+            <summary>Configures any binding elements to support the contract behavior.</summary>
+            <param name="contractDescription">The contract description to modify.</param>
+            <param name="endpoint">The endpoint to modify.</param>
+            <param name="bindingParameters">The objects that binding elements require to support the behavior.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceContractBehavior.ApplyClientBehavior(System.ServiceModel.Description.ContractDescription,System.ServiceModel.Description.ServiceEndpoint,System.ServiceModel.Dispatcher.ClientRuntime)">
+            <summary>Implements a modification or extension of the client across a contract.</summary>
+            <param name="contractDescription">The contract description for which the extension is intended.</param>
+            <param name="endpoint">The endpoint.</param>
+            <param name="clientRuntime">The client runtime.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceContractBehavior.ApplyDispatchBehavior(System.ServiceModel.Description.ContractDescription,System.ServiceModel.Description.ServiceEndpoint,System.ServiceModel.Dispatcher.DispatchRuntime)">
+            <summary>Implements a modification or extension of the service across a contract.</summary>
+            <param name="contractDescription">The contract description to be modified.</param>
+            <param name="endpoint">The endpoint that exposes the contract.</param>
+            <param name="dispatchRuntime">The dispatch runtime that controls service execution.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceContractBehavior.Validate(System.ServiceModel.Description.ContractDescription,System.ServiceModel.Description.ServiceEndpoint)">
+            <summary>Implement to confirm that the contract and endpoint can support the contract behavior.</summary>
+            <param name="contractDescription">The contract to validate.</param>
+            <param name="endpoint">The endpoint to validate.</param>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceContractBehavior.DomainDataServiceInstanceProvider">
+            <summary>Service object instantiator.</summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceContractBehavior.DomainDataServiceInstanceProvider.GetInstance(System.ServiceModel.InstanceContext)">
+            <summary>
+            Returns a service object given the specified InstanceContext object.
+            </summary>
+            <param name="instanceContext">The current InstanceContext object.</param>
+            <returns>A user-defined service object.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceContractBehavior.DomainDataServiceInstanceProvider.GetInstance(System.ServiceModel.InstanceContext,System.ServiceModel.Channels.Message)">
+            <summary>
+            Returns a service object given the specified InstanceContext object.
+            </summary>
+            <param name="instanceContext">The current InstanceContext object.</param>
+            <param name="message">The message that triggered the creation of a service object.</param>
+            <returns>The service object.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceContractBehavior.DomainDataServiceInstanceProvider.ReleaseInstance(System.ServiceModel.InstanceContext,System.Object)">
+            <summary>
+            Called when an InstanceContext object recycles a service object.
+            </summary>
+            <param name="instanceContext">The service's instance context.</param>
+            <param name="instance">The service object to be recycled.</param>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceDispatchMessageFormatter">
+            <summary>
+            Formatter for serializing domain data service responses.
+            </summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceDispatchMessageFormatter.serviceFactory">
+            <summary>
+            Factory for creating data services on top of a domain service.
+            </summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceDispatchMessageFormatter.#ctor(System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceFactory)">
+            <summary>
+            Constructs an instance of message formatter for the domain data service end point.
+            </summary>
+            <param name="serviceFactory">Factory for creating domain data service instances.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceDispatchMessageFormatter.DeserializeRequest(System.ServiceModel.Channels.Message,System.Object[])">
+            <summary>
+            Deserializes a message into an array of parameters.
+            </summary>
+            <param name="message">The incoming message.</param>
+            <param name="parameters">The objects that are passed to the operation as parameters.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceDispatchMessageFormatter.SerializeReply(System.ServiceModel.Channels.MessageVersion,System.Object[],System.Object)">
+            <summary>
+            Serializes a reply message from a specified message version, array of parameters, and a return value.
+            </summary>
+            <param name="messageVersion">The SOAP message version.</param>
+            <param name="parameters">The out parameters.</param>
+            <param name="result">The return value.</param>
+            <returns>The serialized reply message.</returns>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceEndpointBehavior">
+            <summary>
+            WCF behavior for data service end point on top of a domain service.
+            </summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceEndpointBehavior.serviceFactory">
+            <summary>Data service factory used to create data service instances.</summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceEndpointBehavior.ApplyDispatchBehavior(System.ServiceModel.Description.ServiceEndpoint,System.ServiceModel.Dispatcher.EndpointDispatcher)">
+            <summary>Apply the behavior to the service end point.</summary>
+            <param name="endpoint">The endpoint that exposes the contract.</param>
+            <param name="endpointDispatcher">Endpoint dispatcher to which behaviors are applied.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceEndpointBehavior.GetOperationSelector(System.ServiceModel.Description.ServiceEndpoint)">
+            <summary>Get the operation selector for the endpoint.</summary>
+            <param name="endpoint">The endpoint that exposes the contract.</param>
+            <returns>Operation selector for the given endpoint.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceEndpointBehavior.GetQueryStringConverter(System.ServiceModel.Description.OperationDescription)">
+            <summary>
+            Gets the query string converter.
+            </summary>
+            <param name="operationDescription">The service operation.</param>
+            <returns>Query string converter instance.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceEndpointBehavior.GetReplyDispatchFormatter(System.ServiceModel.Description.OperationDescription,System.ServiceModel.Description.ServiceEndpoint)">
+            <summary>Get the reply formatter for an operation belonging to the endpoint.</summary>
+            <param name="operationDescription">Operation description.</param>
+            <param name="endpoint">End point.</param>
+            <returns>Message formatter.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceEndpointBehavior.AddServerErrorHandlers(System.ServiceModel.Description.ServiceEndpoint,System.ServiceModel.Dispatcher.EndpointDispatcher)">
+            <summary>
+            Adds server-side error handlers.
+            </summary>
+            <param name="endpoint">The endpoint for which error handlers are added.</param>
+            <param name="endpointDispatcher">The dispatcher to which error handlers are added.</param>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceEndpointBehavior.DomainDataServiceMetadata">
+            <summary>Data Service metadata object corresponding to domain service description.</summary>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Hosting.ODataEndpointFactory">
+            <summary>
+            Represents a Domain Data Service endpoint factory for <see cref="T:System.ServiceModel.DomainServices.Server.DomainService"/>s.
+            </summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.ODataEndpointFactory.domainDataServiceMetadata">
+            <summary>Data Service metadata object corresponding to domain service description.</summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.ODataEndpointFactory.CreateEndpoints(System.ServiceModel.DomainServices.Server.DomainServiceDescription,System.ServiceModel.DomainServices.Hosting.DomainServiceHost)">
+            <summary>
+            Creates endpoints based on the specified description.
+            </summary>
+            <param name="description">The <see cref="T:System.ServiceModel.DomainServices.Server.DomainServiceDescription"/> of the <see cref="T:System.ServiceModel.DomainServices.Server.DomainService"/> to create the endpoints for.</param>
+            <param name="serviceHost">The service host for which the endpoints will be created.</param>
+            <returns>The endpoints that were created.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.ODataEndpointFactory.CreateContract(System.ServiceModel.DomainServices.Server.DomainServiceDescription)">
+            <summary>
+            Creates a contract description for the domain data service endpoint based on the domain service description.
+            </summary>
+            <param name="description">Domain data service description.</param>
+            <returns>Contract description for the domain data service endpoint.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.ODataEndpointFactory.CreateEndpointForAddress(System.ServiceModel.DomainServices.Server.DomainServiceDescription,System.ServiceModel.Description.ContractDescription,System.Uri)">
+            <summary>
+            Creates an endpoint based on the specified address.
+            </summary>
+            <param name="domainServiceDescription">Domain service description from which the <paramref name="contract"/> was inferred.</param>
+            <param name="contract">The endpoint's contract.</param>
+            <param name="address">The endpoint's base address.</param>
+            <returns>An endpoint.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.ODataEndpointFactory.CreateQueryOperationDescription(System.ServiceModel.Description.ContractDescription,System.ServiceModel.DomainServices.Server.DomainOperationEntry)">
+            <summary>
+            Create operation corresponding to given DomainService query operation.
+            </summary>
+            <param name="declaringContract">Contract to which operation will belong.</param>
+            <param name="operation">DomainService query operation.</param>
+            <returns>Created operation.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.ODataEndpointFactory.CreateOperationDescription(System.ServiceModel.Description.ContractDescription,System.ServiceModel.DomainServices.Server.DomainOperationEntry)">
+            <summary>
+            Create operation corresponding to given DomainService operation.
+            </summary>
+            <param name="declaringContract">Contract to which operation will belong.</param>
+            <param name="operation">DomainService operation.</param>
+            <returns>Created operation.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.ODataEndpointFactory.BuildDefaultUriTemplate(System.ServiceModel.DomainServices.Server.DomainOperationEntry)">
+            <summary>
+            Builds the default URI temaplate to be used for side-effecting (POST) operations.
+            </summary>
+            <param name="operation">Domain operation.</param>
+            <returns>string representing the default URI temaplate.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.ODataEndpointFactory.LoadContractDescription(System.ServiceModel.Description.ContractDescription,System.ServiceModel.DomainServices.Server.DomainServiceDescription)">
+            <summary>
+            Populates a contract description from a domain service description.
+            </summary>
+            <param name="contractDesc">Contract description to populate.</param>
+            <param name="domainServiceDescription">Domain service description.</param>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceErrorHandler">
+            <summary>
+            Error handler for domain data service exceptions. Uses the data service format 
+            for serializing exceptions. Currently only uses the application/xml mime format.
+            </summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceErrorHandler.HandleError(System.Exception)">
+            <summary>
+            Enables error-related processing and returns a value that indicates whether the dispatcher 
+            aborts the session and the instance context in certain cases. 
+            </summary>
+            <param name="error">The exception thrown during processing.</param>
+            <returns>true if Windows Communication Foundation (WCF) should not abort the session (if there is one) and instance context 
+            if the instance context is not Single; otherwise, false. The default is false.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceErrorHandler.ProvideFault(System.Exception,System.ServiceModel.Channels.MessageVersion,System.ServiceModel.Channels.Message@)">
+            <summary>
+            Enables the creation of a custom FaultException that is returned from an exception in the course of a service method.
+            </summary>
+            <param name="error">The Exception object thrown in the course of the service operation.</param>
+            <param name="version">The SOAP version of the message.</param>
+            <param name="fault">The Message object that is returned to the client, or service, in the duplex case.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceErrorHandler.HandleException(System.Exception,System.Net.HttpStatusCode@)">
+            <summary>
+            Creates a delegate used for serializing the exception to outgoing stream.
+            </summary>
+            <param name="exception">Exception to serialize.</param>
+            <param name="statusCode">Http status code from <paramref name="exception"/>.</param>
+            <returns>Delegate that serializes the <paramref name="exception"/>.</returns>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceErrorHandler.DelegateBodyWriter">
+            <summary>Use this class to handle writing body contents using a callback.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceErrorHandler.DelegateBodyWriter.writerAction">
+            <summary>Writer action callback.</summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceErrorHandler.DelegateBodyWriter.#ctor(System.Action{System.IO.Stream})">
+            <summary>Initializes a new <see cref="T:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceErrorHandler.DelegateBodyWriter"/> instance.</summary>
+            <param name="writer">Callback for writing.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceErrorHandler.DelegateBodyWriter.OnWriteBodyContents(System.Xml.XmlDictionaryWriter)">
+            <summary>Called when the message body is written to an XML file.</summary>
+            <param name="writer">
+            An <see cref="T:System.Xml.XmlDictionaryWriter"/> that is used to write this 
+            message body to an XML file.
+            </param>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceErrorHandler.DelegateBodyWriter.XmlWriterStream">
+            <summary>Use this class to write to an <see cref="T:System.Xml.XmlDictionaryWriter"/>.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceErrorHandler.DelegateBodyWriter.XmlWriterStream.innerWriter">
+            <summary>Target writer.</summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceErrorHandler.DelegateBodyWriter.XmlWriterStream.#ctor(System.Xml.XmlDictionaryWriter)">
+            <summary>Initializes a new <see cref="T:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceErrorHandler.DelegateBodyWriter.XmlWriterStream"/> instance.</summary>
+            <param name="xmlWriter">Target writer.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceErrorHandler.DelegateBodyWriter.XmlWriterStream.Flush">
+            <summary>
+            Clears all buffers for this stream and causes any buffered 
+            data to be written to the underlying device.
+            </summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceErrorHandler.DelegateBodyWriter.XmlWriterStream.Read(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Reads a sequence of bytes from the current stream and 
+            advances the position within the stream by the number of bytes read.
+            </summary>
+            <param name="buffer">
+            An array of bytes. When this method returns, the buffer contains 
+            the specified byte array with the values between <paramref name="offset"/> 
+            and (<paramref name="offset"/> + <paramref name="count"/> - 1) replaced 
+            by the bytes read from the current source.
+            </param>
+            <param name="offset">
+            The zero-based byte offset in <paramref name="buffer"/> at which to 
+            begin storing the data read from the current stream.
+            </param>
+            <param name="count">
+            The maximum number of bytes to be read from the current stream.
+            </param>
+            <returns>The total number of bytes read into the buffer.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceErrorHandler.DelegateBodyWriter.XmlWriterStream.Seek(System.Int64,System.IO.SeekOrigin)">
+            <summary>Sets the position within the current stream.</summary>
+            <param name="offset">
+            A byte offset relative to the <paramref name="origin"/> parameter.
+            </param>
+            <param name="origin">
+            A value of type <see cref="T:System.IO.SeekOrigin"/> indicating the reference 
+            point used to obtain the new position.
+            </param>
+            <returns>The new position within the current stream.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceErrorHandler.DelegateBodyWriter.XmlWriterStream.SetLength(System.Int64)">
+            <summary>Sets the length of the current stream.</summary>
+            <param name="value">New value for length.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceErrorHandler.DelegateBodyWriter.XmlWriterStream.Write(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Writes a sequence of bytes to the current stream and advances 
+            the current position within this stream by the number of 
+            bytes written. 
+            </summary>
+            <param name="buffer">
+            An array of bytes. This method copies <paramref name="count"/> 
+            bytes from <paramref name="buffer"/> to the current stream.
+            </param>
+            <param name="offset">
+            The zero-based byte offset in buffer at which to begin copying 
+            bytes to the current stream.
+            </param>
+            <param name="count">
+            The number of bytes to be written to the current stream.
+            </param>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceErrorHandler.DelegateBodyWriter.XmlWriterStream.CanRead">
+            <summary>Gets a value indicating whether the current stream supports reading.</summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceErrorHandler.DelegateBodyWriter.XmlWriterStream.CanSeek">
+            <summary>Gets a value indicating whether the current stream supports seeking.</summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceErrorHandler.DelegateBodyWriter.XmlWriterStream.CanWrite">
+            <summary>Gets a value indicating whether the current stream supports writing.</summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceErrorHandler.DelegateBodyWriter.XmlWriterStream.Length">
+            <summary>Gets the length in bytes of the stream.</summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceErrorHandler.DelegateBodyWriter.XmlWriterStream.Position">
+            <summary>Gets or sets the position within the current stream.</summary>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceErrorHandler.ErrorSerializer">
+            <summary>
+            Performs the actual task of exception serialization.
+            </summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceErrorHandler.ErrorSerializer.defaultEncoding">
+            <summary>Default error response encoding.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceErrorHandler.ErrorSerializer._exception">
+            <summary>Exception to serialize.</summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceErrorHandler.ErrorSerializer.#ctor(System.Exception)">
+            <summary>Initializes a new <see cref="T:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceErrorHandler.ErrorSerializer"/> instance.</summary>
+            <param name="e">Exception to handle.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceErrorHandler.ErrorSerializer.SerializeXmlErrorToStream(System.IO.Stream)">
+            <summary>Serializes the current exception description to the specified <paramref name="stream"/>.</summary>
+            <param name="stream">Stream to write to.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceErrorHandler.ErrorSerializer.SerializeXmlException(System.Xml.XmlWriter,System.Exception)">
+            <summary>Serializes an exception in XML format.</summary>
+            <param name='writer'>Writer to which error should be serialized.</param>
+            <param name='exception'>Exception to serialize.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceErrorHandler.ErrorSerializer.ExtractErrorValues(System.Exception,System.String@,System.String@,System.String@)">
+            <summary>
+            Gets values describing the <paramref name='exception' /> if it's a DomainDataServiceException;
+            defaults otherwise.
+            </summary>
+            <param name='exception'>Exception to extract value from.</param>
+            <param name='errorCode'>Error code from the <paramref name='exception' />; blank if not available.</param>
+            <param name='message'>Message from the <paramref name='exception' />; blank if not available.</param>
+            <param name='messageLang'>Message language from the <paramref name='exception' />; current default if not available.</param>
+            <returns>The cast DataServiceException; possibly null.</returns>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceInvokeOperationBehavior">
+            <summary>
+            Operation behavior that applies InvokeOperationInvoker to
+            all the [Invoke] attributed operations.
+            </summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceInvokeOperationBehavior.operation">
+            <summary>Operation to which the behavior is applied.</summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceInvokeOperationBehavior.#ctor(System.ServiceModel.DomainServices.Server.DomainOperationEntry)">
+            <summary>Constructs a new instance of the behavior.</summary>
+            <param name="operation">Operation to which the behavior is applied.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceInvokeOperationBehavior.AddBindingParameters(System.ServiceModel.Description.OperationDescription,System.ServiceModel.Channels.BindingParameterCollection)">
+            <summary>
+            Implement to pass data at runtime to bindings to support custom behavior.
+            </summary>
+            <param name="operationDescription">The operation being examined. Use for examination only. If the operation description is modified, the results are undefined.</param>
+            <param name="bindingParameters">The collection of objects that binding elements require to support the behavior.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceInvokeOperationBehavior.ApplyClientBehavior(System.ServiceModel.Description.OperationDescription,System.ServiceModel.Dispatcher.ClientOperation)">
+            <summary>
+            Implements a modification or extension of the client across an operation.
+            </summary>
+            <param name="operationDescription">The operation being examined. Use for examination only. If the operation description is modified, the results are undefined.</param>
+            <param name="clientOperation">The run-time object that exposes customization properties for the operation described by operationDescription. </param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceInvokeOperationBehavior.ApplyDispatchBehavior(System.ServiceModel.Description.OperationDescription,System.ServiceModel.Dispatcher.DispatchOperation)">
+            <summary>
+            Implements a modification or extension of the service across an operation.
+            </summary>
+            <param name="operationDescription">The operation being examined. Use for examination only. If the operation description is modified, the results are undefined.</param>
+            <param name="dispatchOperation">The run-time object that exposes customization properties for the operation described by operationDescription.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceInvokeOperationBehavior.Validate(System.ServiceModel.Description.OperationDescription)">
+            <summary>
+            Implement to confirm that the operation meets some intended criteria.
+            </summary>
+            <param name="operationDescription">The operation being examined. Use for examination only. If the operation description is modified, the results are undefined.</param>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceInvokeOperationBehavior.DomainDataServiceInvokeOperationInvoker">
+            <summary>Invoker for invoke operations.</summary>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceOperationInvoker">
+            <summary>Base class for all operation invokers supported on the domain data service endpoint.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceOperationInvoker.operationType">
+            <summary>Operation type.</summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceOperationInvoker.#ctor(System.ServiceModel.DomainServices.Server.DomainOperationType)">
+            <summary>Constructs an invoker instance.</summary>
+            <param name="operationType">Operation type.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceOperationInvoker.AllocateInputs">
+            <summary>
+            Returns an array of parameter objects.
+            </summary>
+            <returns>The parameters that are to be used as arguments to the operation.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceOperationInvoker.Invoke(System.Object,System.Object[],System.Object[]@)">
+            <summary>
+            Returns an object and a set of output objects from an instance and set of input objects. 
+            </summary>
+            <param name="instance">The object to be invoked.</param>
+            <param name="inputs">The inputs to the method.</param>
+            <param name="outputs">The outputs from the method.</param>
+            <returns>The return value.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceOperationInvoker.ConvertInputs(System.Object[])">
+            <summary>
+            Converts input parameters in place.
+            </summary>
+            <param name="inputs">Input parameters.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceOperationInvoker.ConvertReturnValue(System.Object)">
+            <summary>
+            Converts the return value.
+            </summary>
+            <param name="returnValue">Return value.</param>
+            <returns>Converted return value.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceOperationInvoker.InvokeCore(System.Object,System.Object[],System.Object[]@)">
+            <summary>
+            Derived classes override this method to provide custom invocation behavior.
+            </summary>
+            <param name="instance">Instance to invoke the invoker against.</param>
+            <param name="inputs">Input parameters post conversion.</param>
+            <param name="outputs">Optional out parameters.</param>
+            <returns>Result of invocation.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceOperationInvoker.InvokeBegin(System.Object,System.Object[],System.AsyncCallback,System.Object)">
+            <summary>
+            An asynchronous implementation of the Invoke method.
+            </summary>
+            <param name="instance">The object to be invoked.</param>
+            <param name="inputs">The inputs to the method.</param>
+            <param name="callback">The asynchronous callback object.</param>
+            <param name="state">Associated state data.</param>
+            <returns>A System.IAsyncResult used to complete the asynchronous call.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceOperationInvoker.InvokeEnd(System.Object,System.Object[]@,System.IAsyncResult)">
+            <summary>
+            The asynchronous end method.
+            </summary>
+            <param name="instance">The object invoked.</param>
+            <param name="outputs">The outputs from the method.</param>
+            <param name="result">The System.IAsyncResult object.</param>
+            <returns>The return value.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceOperationInvoker.VerifyRequest(System.ServiceModel.DomainServices.Server.DomainService)">
+            <summary>
+            Validate the current request.
+            </summary>
+            <param name="domainService">Domain service instance for which request was sent.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceOperationInvoker.GetDomainService(System.Object)">
+            <summary>
+            Instatiates a DomainService instance along with the DomainServiceContext.
+            </summary>
+            <param name="instance">Wrapper representing the instance passed to invocation.</param>
+            <returns>New DomainService instance.</returns>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceOperationInvoker.IsSynchronous">
+            <summary>
+            Gets a value that specifies whether the Invoke or InvokeBegin method is called by the dispatcher.
+            </summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceInvokeOperationBehavior.DomainDataServiceInvokeOperationInvoker.operation">
+            <summary>Operation to be invoked on the DomainService.</summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceInvokeOperationBehavior.DomainDataServiceInvokeOperationInvoker.#ctor(System.ServiceModel.DomainServices.Server.DomainOperationEntry)">
+            <summary>Create a new instance.</summary>
+            <param name="operation">Operation to be invoked by this invoker.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceInvokeOperationBehavior.DomainDataServiceInvokeOperationInvoker.AllocateInputs">
+            <summary>
+            Returns an array of parameter objects.
+            </summary>
+            <returns>The parameters that are to be used as arguments to the operation.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceInvokeOperationBehavior.DomainDataServiceInvokeOperationInvoker.InvokeCore(System.Object,System.Object[],System.Object[]@)">
+            <summary>
+            Derived classes override this method to provide custom invocation behavior.
+            </summary>
+            <param name="instance">Instance to invoke the invoker against.</param>
+            <param name="inputs">Input parameters post conversion.</param>
+            <param name="outputs">Optional out parameters.</param>
+            <returns>Result of invocation.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceInvokeOperationBehavior.DomainDataServiceInvokeOperationInvoker.ConvertInputs(System.Object[])">
+            <summary>
+            Converts input parameters in place.
+            </summary>
+            <param name="inputs">Input parameters.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceInvokeOperationBehavior.DomainDataServiceInvokeOperationInvoker.ConvertReturnValue(System.Object)">
+            <summary>
+            Converts the return value.
+            </summary>
+            <param name="returnValue">Return value.</param>
+            <returns>Converted return value.</returns>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceOperationSelector">
+            <summary>Selects the domain service operation to be invoked by WCF corresponding to current request.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceOperationSelector.baseUri">
+            <summary>
+            Base URI of the end point.
+            </summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceOperationSelector.serviceRootQueryOperations">
+            <summary>
+            Mapping between resource set names and their corresponding query operations.
+            </summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceOperationSelector.#ctor(System.ServiceModel.Description.ServiceEndpoint,System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata)">
+            <summary>Constructs the operation selector for runtime.</summary>
+            <param name="endpoint">End point.</param>
+            <param name="metadata">Domain data service metadata.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceOperationSelector.SelectOperation(System.ServiceModel.Channels.Message@,System.Boolean@)">
+            <summary>
+            Selects the service operation to call.
+            </summary>
+            <param name="message">The Message object sent to invoke a service operation.</param>
+            <param name="uriMatched">A value that specifies whether the URI matched a specific service operation.</param>
+            <returns>The name of the service operation to call.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceOperationSelector.ExtractNonRootQueryServiceOperations(System.ServiceModel.Description.ServiceEndpoint,System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata)">
+            <summary>
+            Obtains the service operations available on the model and hands over all those
+            operations to the base class for processing. The root query operations are
+            handled by this class itself.
+            </summary>
+            <param name="endpoint">Endpoint on which operations are defined.</param>
+            <param name="metadata">Metadata of the domain service.</param>
+            <returns>Endpoint that contains all the operations that base class needs to process.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceOperationSelector.GetRootQueryOperation(System.ServiceModel.Description.OperationDescription,System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceMetadata)">
+            <summary>
+            Given an operation descriptions, detects if it corresponds to a root query operation.
+            </summary>
+            <param name="od">Given operation description.</param>
+            <param name="metadata">Metadata for the domain data service.</param>
+            <returns>null if operation does not correspond to root query operation, otherwise the name of the resource set.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceOperationSelector.CreateAstoriaTemplate(System.Uri)">
+            <summary>
+            Create UriTemplate collection that universally accepts all query operations.
+            </summary>
+            <param name="baseUri">Base endpoint URI.</param>
+            <returns>Table that contains a universal matcher.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceOperationSelector.DisallowQueryOptions(System.Uri)">
+            <summary>Disallows query options for WCF Data Service endpoint.</summary>
+            <param name="requestUri">Message request URI.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceOperationSelector.DisallowNonGetRequests(System.String)">
+            <summary>
+            Checks if the HTTP request is a GET request and throws otherwise.
+            </summary>
+            <param name="httpMethod">Request HTTP method.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceOperationSelector.DisallowEntrySelection(System.String,System.String)">
+            <summary>
+            Check if the request URI is attempting to select a single element fromo request and disallows selection on key values.
+            </summary>
+            <param name="identifier">Identitifer representing root query including possible key values.</param>
+            <param name="segment">Identifier representing root query excluding anything after the name.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceOperationSelector.DisallowJsonRequests(System.ServiceModel.DomainServices.Hosting.OData.RequestKind,System.String)">
+            <summary>Disallows requests that would like the response in json format.</summary>
+            <param name="requestKind">Type of request.</param>
+            <param name="acceptHeader">Accept header value.</param>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceQueryOperationBehavior`1">
+            <summary>
+            Operation behavior that applies InvokeOperationInvoker to
+            all the [Query] attributed operations. 
+            </summary>
+            <typeparam name="TEntity">Behavior type being wrapped.</typeparam>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceQueryOperationBehavior`1.operation">
+            <summary>Operation to which the behavior is applied.</summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceQueryOperationBehavior`1.#ctor(System.ServiceModel.DomainServices.Server.DomainOperationEntry)">
+            <summary>Constructs a new instance of the behavior.</summary>
+            <param name="operation">Operation to which the behavior is applied.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceQueryOperationBehavior`1.AddBindingParameters(System.ServiceModel.Description.OperationDescription,System.ServiceModel.Channels.BindingParameterCollection)">
+            <summary>
+            Implement to pass data at runtime to bindings to support custom behavior.
+            </summary>
+            <param name="operationDescription">The operation being examined. Use for examination only. If the operation description is modified, the results are undefined.</param>
+            <param name="bindingParameters">The collection of objects that binding elements require to support the behavior.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceQueryOperationBehavior`1.ApplyClientBehavior(System.ServiceModel.Description.OperationDescription,System.ServiceModel.Dispatcher.ClientOperation)">
+            <summary>
+            Implements a modification or extension of the client across an operation.
+            </summary>
+            <param name="operationDescription">The operation being examined. Use for examination only. If the operation description is modified, the results are undefined.</param>
+            <param name="clientOperation">The run-time object that exposes customization properties for the operation described by operationDescription. </param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceQueryOperationBehavior`1.ApplyDispatchBehavior(System.ServiceModel.Description.OperationDescription,System.ServiceModel.Dispatcher.DispatchOperation)">
+            <summary>
+            Implements a modification or extension of the service across an operation.
+            </summary>
+            <param name="operationDescription">The operation being examined. Use for examination only. If the operation description is modified, the results are undefined.</param>
+            <param name="dispatchOperation">The run-time object that exposes customization properties for the operation described by operationDescription.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceQueryOperationBehavior`1.Validate(System.ServiceModel.Description.OperationDescription)">
+            <summary>
+            Implement to confirm that the operation meets some intended criteria.
+            </summary>
+            <param name="operationDescription">The operation being examined. Use for examination only. If the operation description is modified, the results are undefined.</param>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceQueryOperationBehavior`1.DomainDataServiceQueryOperationInvoker">
+            <summary>Invoker for query operations.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceQueryOperationBehavior`1.DomainDataServiceQueryOperationInvoker.operation">
+            <summary>Operation to be invoked on the DomainService.</summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceQueryOperationBehavior`1.DomainDataServiceQueryOperationInvoker.#ctor(System.ServiceModel.DomainServices.Server.DomainOperationEntry)">
+            <summary>Create a new instance.</summary>
+            <param name="operation">Operation to be invoked by this invoker.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceQueryOperationBehavior`1.DomainDataServiceQueryOperationInvoker.AllocateInputs">
+            <summary>
+            Returns an array of parameter objects.
+            </summary>
+            <returns>The parameters that are to be used as arguments to the operation.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceQueryOperationBehavior`1.DomainDataServiceQueryOperationInvoker.InvokeCore(System.Object,System.Object[],System.Object[]@)">
+            <summary>
+            Derived classes override this method to provide custom invocation behavior.
+            </summary>
+            <param name="instance">Instance to invoke the invoker against.</param>
+            <param name="inputs">Input parameters post conversion.</param>
+            <param name="outputs">Optional out parameters.</param>
+            <returns>Result of invocation.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceQueryOperationBehavior`1.DomainDataServiceQueryOperationInvoker.ConvertInputs(System.Object[])">
+            <summary>
+            Converts input parameters in place.
+            </summary>
+            <param name="inputs">Input parameters.</param>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceQueryStringConverter">
+            <summary>
+            This class converts a parameter in a query string to an object of the appropriate type. 
+            It can also convert a parameter from an object to its query string representation. 
+            </summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceQueryStringConverter.CanConvert(System.Type)">
+            <summary>
+            Determines whether the specified type can be converted to and from a string representation.
+            </summary>
+            <param name="type">The Type to convert.</param>
+            <returns>true if the input type represents one of the primitive resource types supported by WCF Data Services.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceQueryStringConverter.ConvertStringToValue(System.String,System.Type)">
+            <summary>
+            Converts a query string parameter to the specified type.
+            </summary>
+            <param name="parameter">The string form of the parameter and value.</param>
+            <param name="parameterType">The Type to convert the parameter to.</param>
+            <returns>The converted parameter.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceQueryStringConverter.TryKeyStringToPrimitive(System.String,System.Type,System.Object@)">
+            <summary>Converts a string to a primitive value.</summary>
+            <param name="text">String text to convert.</param>
+            <param name="targetType">Type to convert string to.</param>
+            <param name="targetValue">After invocation, converted value.</param>
+            <returns>true if the value was converted; false otherwise.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceQueryStringConverter.TryKeyStringToByteArray(System.String,System.Byte[]@)">
+            <summary>Converts a string to a byte[] value.</summary>
+            <param name="text">String text to convert.</param>
+            <param name="targetValue">After invocation, converted value.</param>
+            <returns>true if the value was converted; false otherwise.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceQueryStringConverter.TryKeyStringToGuid(System.String,System.Guid@)">
+            <summary>Converts a string to a GUID value.</summary>
+            <param name="text">String text to convert.</param>
+            <param name="targetValue">After invocation, converted value.</param>
+            <returns>true if the value was converted; false otherwise.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceQueryStringConverter.TryKeyStringToDateTime(System.String,System.DateTime@)">
+            <summary>Converts a string to a DateTime value.</summary>
+            <param name="text">String text to convert.</param>
+            <param name="targetValue">After invocation, converted value.</param>
+            <returns>true if the value was converted; false otherwise.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceQueryStringConverter.TryRemoveLiteralPrefix(System.String,System.String@)">
+            <summary>
+            Tries to remove a literal <paramref name="prefix"/> from the specified <paramref name="text"/>.
+            </summary>
+            <param name="prefix">Prefix to remove; one-letter prefixes are case-sensitive, others insensitive.</param>
+            <param name="text">Text to attempt to remove prefix from.</param>
+            <returns>true if the prefix was found and removed; false otherwise.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceQueryStringConverter.TryRemoveLiteralSuffix(System.String,System.String@)">
+            <summary>
+            Check and strip the input <paramref name="text"/> for literal <paramref name="suffix"/>
+            </summary>
+            <param name="suffix">The suffix value</param>
+            <param name="text">The string to check</param>
+            <returns>True if <paramref name="text"/> has been striped of the <paramref name="suffix"/>.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceQueryStringConverter.IsKeyTypeQuoted(System.Type)">
+            <summary>
+            Determines whether the values for the specified types should be 
+            quoted in URI keys.
+            </summary>
+            <param name='type'>Type to check.</param>
+            <returns>
+            true if values of <paramref name='type' /> require quotes; false otherwise.
+            </returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceQueryStringConverter.IsKeyValueQuoted(System.String)">
+            <summary>Checks whether the specified text is a correctly formatted quoted value.</summary>
+            <param name='text'>Text to check.</param>
+            <returns>true if the text is correctly formatted, false otherwise.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceQueryStringConverter.RemoveQuotes(System.String)">
+            <summary>Removes quotes from the single-quotes text.</summary>
+            <param name="text">Text to remove quotes from.</param>
+            <returns>The specified <paramref name="text"/> with single quotes removed.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceQueryStringConverter.TryRemoveQuotes(System.String@)">
+            <summary>Removes quotes from the single-quotes text.</summary>
+            <param name="text">Text to remove quotes from.</param>
+            <returns>Whether quotes were successfully removed.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceQueryStringConverter.CheckSyntaxValid(System.Boolean)">
+            <summary>Checks the specific value for syntax validity.</summary>
+            <param name="valid">Whether syntax is valid.</param>
+            <remarks>This helper method is used to keep syntax check code more terse.</remarks>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceQueryStringConverter.HexCharToNibble(System.Char)">
+            <summary>Returns the 4 bits that correspond to the specified character.</summary>
+            <param name="c">Character in the 0-F range to be converted.</param>
+            <returns>The 4 bits that correspond to the specified character.</returns>
+            <exception cref="T:System.FormatException">Thrown when 'c' is not in the '0'-'9','a'-'f' range.</exception>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceQueryStringConverter.IsCharHexDigit(System.Char)">
+            <summary>Determines whether the specified character is a valid hexadecimal digit.</summary>
+            <param name="c">Character to check.</param>
+            <returns>true if <paramref name="c"/> is a valid hex digit; false otherwise.</returns>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Hosting.OData.NullOperationInvoker">
+            <summary>
+            Operation invoker that does nothing.    
+            </summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.NullOperationInvoker.AllocateInputs">
+            <summary>
+            Returns an array of parameter objects.
+            </summary>
+            <returns>The parameters that are to be used as arguments to the operation.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.NullOperationInvoker.Invoke(System.Object,System.Object[],System.Object[]@)">
+            <summary>
+            Returns an object and a set of output objects from an instance and set of input objects. 
+            </summary>
+            <param name="instance">The object to be invoked.</param>
+            <param name="inputs">The inputs to the method.</param>
+            <param name="outputs">The outputs from the method.</param>
+            <returns>The return value.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.NullOperationInvoker.InvokeBegin(System.Object,System.Object[],System.AsyncCallback,System.Object)">
+            <summary>
+            An asynchronous implementation of the Invoke method.
+            </summary>
+            <param name="instance">The object to be invoked.</param>
+            <param name="inputs">The inputs to the method.</param>
+            <param name="callback">The asynchronous callback object.</param>
+            <param name="state">Associated state data.</param>
+            <returns>A System.IAsyncResult used to complete the asynchronous call.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.NullOperationInvoker.InvokeEnd(System.Object,System.Object[]@,System.IAsyncResult)">
+            <summary>
+            The asynchronous end method.
+            </summary>
+            <param name="instance">The object invoked.</param>
+            <param name="outputs">The outputs from the method.</param>
+            <param name="result">The System.IAsyncResult object.</param>
+            <returns>The return value.</returns>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.NullOperationInvoker.IsSynchronous">
+            <summary>
+            Gets a value that specifies whether the Invoke or InvokeBegin method is called by the dispatcher.
+            </summary>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Hosting.OData.Resource">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.Resource.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.Resource.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.Resource.Communication_NoChannelMustBeOpened">
+            <summary>
+              Looks up a localized string similar to No channel should ever be opened with this host..
+            </summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.Resource.Communication_NoDefaultAuthenticationScheme">
+            <summary>
+              Looks up a localized string similar to No default authentication scheme exists..
+            </summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.Resource.DomainDataService_Enable_Client_Access_Require_Secure_Connection">
+            <summary>
+              Looks up a localized string similar to EnableClientAccess attribute on the DomainService type requires secure connection..
+            </summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.Resource.DomainDataService_General_Error">
+            <summary>
+              Looks up a localized string similar to An error occurred while processing request for domain data services..
+            </summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.Resource.DomainDataService_MEST_NotAllowed">
+            <summary>
+              Looks up a localized string similar to Multiple resource sets per type are not allowed..
+            </summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.Resource.DomainDataService_MultipleSegments_NotAllowed">
+            <summary>
+              Looks up a localized string similar to Requests that have multiple segments are not allowed..
+            </summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.Resource.DomainDataService_Operation_Method_NotAllowed">
+            <summary>
+              Looks up a localized string similar to The requested HTTP method is not allowed for the given DomainService operation..
+            </summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.Resource.DomainDataService_Operation_NotFound">
+            <summary>
+              Looks up a localized string similar to The DomainService method corresponding to the given request could not be found..
+            </summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.Resource.DomainDataService_OperationError">
+            <summary>
+              Looks up a localized string similar to An error occurred during execution of the DomainService operation. Inspect the OperationErrors property for more information..
+            </summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.Resource.DomainDataService_QueryOptions_NotAllowed">
+            <summary>
+              Looks up a localized string similar to Query options are not allowed..
+            </summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.Resource.DomainDataService_RequestParameter_SyntaxError">
+            <summary>
+              Looks up a localized string similar to Syntax error while processing request parameter..
+            </summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.Resource.DomainDataService_RequestUri_IncorrectBase">
+            <summary>
+              Looks up a localized string similar to Request URI does not have the correct base URI..
+            </summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.Resource.DomainDataService_RequestUri_SyntaxError">
+            <summary>
+              Looks up a localized string similar to Syntax error in the request URI..
+            </summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.Resource.DomainDataService_ResourceSets_Metadata_OnlyAllowedGet">
+            <summary>
+              Looks up a localized string similar to Only HTTP GET requests are allowed for operations returning resource sets or service metadata documents..
+            </summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.Resource.DomainDataService_Selection_Error">
+            <summary>
+              Looks up a localized string similar to An error occurred while trying to select the DomainService operation corresponding to a request. See InnerException for details..
+            </summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.Resource.DomainDataServices_Selection_KeyNotSupported">
+            <summary>
+              Looks up a localized string similar to Requests that attempt to access a single element using key values from a result set are not supported..
+            </summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.Resource.HttpContextServiceHost_MalformedHeaderValue">
+            <summary>
+              Looks up a localized string similar to Malformed value in request header..
+            </summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.Resource.HttpProcessUtility_ClosingQuoteNotFound">
+            <summary>
+              Looks up a localized string similar to Value for MIME type parameter &apos;{0}&apos; is incorrect because the closing quote character could not be found while the parameter value started with a quote character..
+            </summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.Resource.HttpProcessUtility_EscapeCharAtEnd">
+            <summary>
+              Looks up a localized string similar to Value for MIME type parameter &apos;{0}&apos; is incorrect because it terminated with escape character. Escape characters must always be followed by a character in a parameter value..
+            </summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.Resource.HttpProcessUtility_EscapeCharWithoutQuotes">
+            <summary>
+              Looks up a localized string similar to Value for MIME type parameter &apos;{0}&apos; is incorrect because it contained escape characters even though it was not quoted..
+            </summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.Resource.HttpProcessUtility_MediaTypeMissingValue">
+            <summary>
+              Looks up a localized string similar to Media type is missing a parameter value..
+            </summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.Resource.HttpProcessUtility_MediaTypeRequiresSemicolonBeforeParameter">
+            <summary>
+              Looks up a localized string similar to Media type requires a &apos;;&apos; character before a parameter definition..
+            </summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.Resource.HttpProcessUtility_MediaTypeRequiresSlash">
+            <summary>
+              Looks up a localized string similar to Media type requires a &apos;/&apos; character..
+            </summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.Resource.HttpProcessUtility_MediaTypeRequiresSubType">
+            <summary>
+              Looks up a localized string similar to Media type requires a subtype definition..
+            </summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.Resource.HttpProcessUtility_MediaTypeUnspecified">
+            <summary>
+              Looks up a localized string similar to Media type is unspecified..
+            </summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.Resource.HttpProcessUtility_UnsupportedMediaType">
+            <summary>
+              Looks up a localized string similar to Unsupported media type requested..
+            </summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceException.messageLanguage">
+            <summary>Language for the exception message.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceException.errorCode">
+            <summary>Error code to be used in payloads.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceException.statusCode">
+            <summary>HTTP response status code for this exception.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceException.responseAllowHeader">
+            <summary>'Allow' response for header.</summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceException.#ctor">
+            <summary>
+            Initializes a new instance of the DomainDataServiceException class.
+            </summary>
+            <remarks>
+            The Message property is initialized to a system-supplied message 
+            that describes the error. This message takes into account the 
+            current system culture. The StatusCode property is set to 500
+            (Internal Server Error).
+            </remarks>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the DomainDataServiceException class.
+            </summary>
+            <param name="message">Plain text error message for this exception.</param>
+            <remarks>
+            The StatusCode property is set to 500 (Internal Server Error).
+            </remarks>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the DomainDataServiceException class.
+            </summary>
+            <param name="message">Plain text error message for this exception.</param>
+            <param name="innerException">Exception that caused this exception to be thrown.</param>
+            <remarks>
+            The StatusCode property is set to 500 (Internal Server Error).
+            </remarks>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceException.#ctor(System.Int32,System.String)">
+            <summary>
+            Initializes a new instance of the DomainDataServiceException class.
+            </summary>
+            <param name="statusCode">HTTP response status code for this exception.</param>
+            <param name="message">Plain text error message for this exception.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceException.#ctor(System.Int32,System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the DomainDataServiceException class.
+            </summary>
+            <param name="statusCode">HTTP response status code for this exception.</param>
+            <param name="message">Plain text error message for this exception.</param>
+            <param name="innerException">Exception that caused this exception to be thrown.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceException.HandleValidationErrors(System.Collections.Generic.IEnumerable{System.ComponentModel.DataAnnotations.ValidationResult})">
+            <summary>
+            Raise the proper DomainDataServiceException if we encounter an error during execution of the DomainService operation.
+            </summary>
+            <param name="validationErrors">ValidationResults from a DomainService operation execution.</param>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceException.ErrorCode">
+            <summary>Error code to be used in payloads.</summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceException.MessageLanguage">
+            <summary>Language for the exception Message.</summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceException.StatusCode">
+            <summary>Response status code for this exception.</summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.DomainDataServiceException.ResponseAllowHeader">
+            <summary>'Allow' response for header.</summary>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Hosting.OData.RequestKind">
+            <summary>
+            Types of requests supported by OData endpoint.
+            </summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.RequestKind.Unsupported">
+            <summary>
+            Unsupported request.
+            </summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.RequestKind.ServiceDocument">
+            <summary>
+            Service document request.
+            </summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.RequestKind.MetadataDocument">
+            <summary>
+            Metadata document request.
+            </summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.RequestKind.ResourceSet">
+            <summary>
+            Resource set request.
+            </summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.RequestKind.ServiceOperation">
+            <summary>
+            Service operation request.
+            </summary>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils">
+            <summary>Provides helper methods for processing HTTP requests.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.MimeApplicationAtomService">
+            <summary>MIME type for ATOM Service Documents (http://tools.ietf.org/html/rfc5023#section-8).</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.MimeApplicationAtom">
+            <summary>MIME type for ATOM bodies (http://www.iana.org/assignments/media-types/application/).</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.MimeApplicationXml">
+            <summary>MIME type for XML bodies.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.MimeTextXml">
+            <summary>MIME type for XML bodies (deprecated).</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.MimeApplicationJson">
+            <summary>MIME type for JSON bodies (http://www.iana.org/assignments/media-types/application/).</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.HttpQValueParameter">
+            <summary>'q' - HTTP q-value parameter name.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.ServiceDocumentMimeTypes">
+            <summary>
+            Mime types for service documents.
+            </summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.MetadataDocumentMimeTypes">
+            <summary>
+            Mime types for metadata documents.
+            </summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.ResourceSetMimeTypes">
+            <summary>
+            Mime types for resource set response.
+            </summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.ServiceOperationMimeTypes">
+            <summary>
+            Mime types for service operation response.
+            </summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.IsJsonRequest(System.ServiceModel.DomainServices.Hosting.OData.RequestKind,System.String)">
+            <summary>Disallows requests that would like the response in json format.</summary>
+            <param name="requestKind">Type of request.</param>
+            <param name="acceptHeader">Accept header value.</param>
+            <returns>True if request is accepting json response.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.SelectRequiredMimeType(System.String,System.String[],System.String)">
+            <summary>Gets the appropriate MIME type for the request, throwing if there is none.</summary>
+            <param name='acceptTypesText'>Text as it appears in an HTTP Accepts header.</param>
+            <param name='exactContentType'>Preferred content type to match if an exact media type is given - this is in descending order of preference.</param>
+            <param name='inexactContentType'>Preferred fallback content type for inexact matches.</param>
+            <returns>One of exactContentType or inexactContentType.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.CompareMimeType(System.String,System.String)">
+            <summary>
+            Does a ordinal ignore case comparision of the given mime types.
+            </summary>
+            <param name="mimeType1">mime type1.</param>
+            <param name="mimeType2">mime type2.</param>
+            <returns>returns true if the mime type are the same.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.MimeTypesFromAcceptHeader(System.String)">
+            <summary>Returns all MIME types from the specified (non-blank) <paramref name='text' />.</summary>
+            <param name='text'>Non-blank text, as it appears on an HTTP Accepts header.</param>
+            <returns>An enumerable object with media type descriptions.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.ReadMediaTypeAndSubtype(System.String,System.Int32@,System.String@,System.String@)">
+            <summary>Reads the type and subtype specifications for a MIME type.</summary>
+            <param name='text'>Text in which specification exists.</param>
+            <param name='textIndex'>Pointer into text.</param>
+            <param name='type'>Type of media found.</param>
+            <param name='subType'>Subtype of media found.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.ReadMediaTypeParameter(System.String,System.Int32@,System.Collections.Generic.KeyValuePair{System.String,System.String}[]@)">
+            <summary>Read a parameter for a media type/range.</summary>
+            <param name="text">Text to read from.</param>
+            <param name="textIndex">Pointer in text.</param>
+            <param name="parameters">Array with parameters to grow as necessary.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.ReadQuotedParameterValue(System.String,System.String,System.Int32@)">
+            <summary>
+            Reads Mime type parameter value for a particular parameter in the Content-Type/Accept headers.
+            </summary>
+            <param name="parameterName">Name of parameter.</param>
+            <param name="headerText">Header text.</param>
+            <param name="textIndex">Parsing index in <paramref name="headerText"/>.</param>
+            <returns>String representing the value of the <paramref name="parameterName"/> parameter.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.ReadQualityValue(System.String,System.Int32@,System.Int32@)">
+            <summary>
+            Reads the numeric part of a quality value substring, normalizing it to 0-1000
+            rather than the standard 0.000-1.000 ranges.
+            </summary>
+            <param name="text">Text to read qvalue from.</param>
+            <param name="textIndex">Index into text where the qvalue starts.</param>
+            <param name="qualityValue">After the method executes, the normalized qvalue.</param>
+            <remarks>
+            For more information, see RFC 2616.3.8.
+            </remarks>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.ReadToken(System.String,System.Int32@)">
+            <summary>
+            Reads a token on the specified text by advancing an index on it.
+            </summary>
+            <param name="text">Text to read token from.</param>
+            <param name="textIndex">Index for the position being scanned on text.</param>
+            <returns>true if the end of the text was reached; false otherwise.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.SkipWhitespace(System.String,System.Int32@)">
+            <summary>
+            Skips whitespace in the specified text by advancing an index to
+            the next non-whitespace character.
+            </summary>
+            <param name="text">Text to scan.</param>
+            <param name="textIndex">Index to begin scanning from.</param>
+            <returns>true if the end of the string was reached, false otherwise.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.IsHttpElementSeparator(System.Char)">
+            <summary>
+            Verfies whether the specified character is a valid separator in
+            an HTTP header list of element.
+            </summary>
+            <param name="c">Character to verify.</param>
+            <returns>true if c is a valid character for separating elements; false otherwise.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.IsHttpSeparator(System.Char)">
+            <summary>
+            Determines whether the specified character is a valid HTTP separator.
+            </summary>
+            <param name="c">Character to verify.</param>
+            <returns>true if c is a separator; false otherwise.</returns>
+            <remarks>
+            See RFC 2616 2.2 for further information.
+            </remarks>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.IsHttpToken(System.Char)">
+            <summary>
+            Determines whether the specified character is a valid HTTP header token character.
+            </summary>
+            <param name="c">Character to verify.</param>
+            <returns>true if c is a valid HTTP header token character; false otherwise.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.DigitToInt32(System.Char)">
+            <summary>
+            Converts the specified character from the ASCII range to a digit.
+            </summary>
+            <param name="c">Character to convert.</param>
+            <returns>
+            The Int32 value for c, or -1 if it is an element separator.
+            </returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.CreateParsingException(System.String)">
+            <summary>Creates a new exception for parsing errors.</summary>
+            <param name="message">Message for error.</param>
+            <returns>A new exception that can be thrown for a parsing error.</returns>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.MediaType">
+            <summary>Use this class to represent a media type definition.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.MediaType.parameters">
+            <summary>Parameters specified on the media type.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.MediaType.subType">
+            <summary>Sub-type specification (for example, 'plain').</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.MediaType.type">
+            <summary>Type specification (for example, 'text').</summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.MediaType.#ctor(System.String,System.String,System.Collections.Generic.KeyValuePair{System.String,System.String}[])">
+            <summary>
+            Initializes a new <see cref="T:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.MediaType"/> read-only instance.
+            </summary>
+            <param name="type">Type specification (for example, 'text').</param>
+            <param name="subType">Sub-type specification (for example, 'plain').</param>
+            <param name="parameters">Parameters specified on the media type.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.MediaType.GetMatchingParts(System.String)">
+            <summary>Gets a number of non-* matching types, or -1 if not matching at all.</summary>
+            <param name="candidate">Candidate MIME type to match.</param>
+            <returns>The number of non-* matching types, or -1 if not matching at all.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.MediaType.SelectQualityValue">
+            <summary>Selects a quality value for the specified type.</summary>
+            <returns>The quality value, in range from 0 through 1000.</returns>
+            <remarks>See http://tools.ietf.org/html/rfc2616#section-14.1 for further details.</remarks>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.MediaType.MimeType">
+            <summary>Returns the MIME type in standard type/subtype form, without parameters.</summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.HttpProcessUtils.MediaType.Parameters">
+            <summary>media type parameters</summary>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils">
+            <summary>Utility methods used by host creation code.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.DefaultNamespace">
+            <summary>Default contract namespace.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.DomainDataServiceContractName">
+            <summary>Name/Configuration name for the contract.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.DomainDataServiceEndPointName">
+            <summary>Name of the data service end point.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.ServiceDocumentOperationName">
+            <summary>Operation name for service document request.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.MetadataOperationName">
+            <summary>Operation name for metadata request.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.UriTemplateMatchResultsPropertyName">
+            <summary>Name of URI template match results property for a message.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.MatchAllWildCard">
+            <summary>Wildcard pattern that matches everything.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.ResourceSetPostFix">
+            <summary>Post fix for all resource sets.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.HttpGetMethodName">
+            <summary>HTTP GET method name.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.HttpPostMethodName">
+            <summary>HTTP POST method name.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.WcfBinaryElementName">
+            <summary>"Binary" - WCF element name for binary content in XML-wrapping streams.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.MimeApplicationXml">
+            <summary>MIME type for XML bodies.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.XmlErrorElementName">
+            <summary>XML element name for an error.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.XmlErrorCodeElementName">
+            <summary>XML element name for an error code.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.XmlErrorInnerElementName">
+            <summary>XML element name for the inner error details.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.XmlErrorInternalExceptionElementName">
+            <summary>XML element name for an internal exception.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.XmlErrorTypeElementName">
+            <summary>XML element name for an exception type.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.XmlErrorStackTraceElementName">
+            <summary>XML element name for an exception stack trace.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.XmlErrorMessageElementName">
+            <summary>XML element name for an error message.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.DataWebMetadataNamespace">
+            <summary>XML namespace for data service annotations.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.XmlNamespacePrefix">
+            <summary> Schema Namespace prefix For xml.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.XmlLangAttributeName">
+            <summary>'lang' XML attribute name for annotation language.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.HttpDataServiceVersion">
+            <summary>'DataServiceVersion' - HTTP header name for data service version.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.DataServiceVersion1Dot0">
+            <summary>'1.0' - the version 1.0 text for a data service.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.ServiceFileExtension">
+            <summary>Extension to service file.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.EmptyObjectArray">
+            <summary>Empty object array.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils._inspectorLock">
+            <summary>Locks used detecting default authentication scheme, credential type used to be done only once.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils._inspector">
+            <summary>Detector for default authentication scheme, credential type.</summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.GetRequestMessageAction(System.ServiceModel.Description.ContractDescription,System.String,System.String)">
+            <summary>
+            Get the action representing the request.
+            </summary>
+            <param name="contractName">Contract name.</param>
+            <param name="opname">Operation name.</param>
+            <param name="action">Request action.</param>
+            <returns>String representing the request action.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.GetResponseMessageAction(System.ServiceModel.Description.ContractDescription,System.String,System.String)">
+            <summary>
+            Get the action representing the response.
+            </summary>
+            <param name="contractName">Contract name.</param>
+            <param name="opname">Operation name.</param>
+            <param name="action">Request action.</param>
+            <returns>String representing the response action.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.EnsureBehavior``1(System.ServiceModel.Description.ContractDescription)">
+            <summary>
+            Adds the behavior of given type to the contract description.
+            </summary>
+            <typeparam name="T">Type of behavior.</typeparam>
+            <param name="contractDesc">Contract description.</param>
+            <returns>Added behavior.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.EnsureBehavior``1(System.ServiceModel.Description.OperationDescription)">
+            <summary>
+            Add the behavior to the operation description.
+            </summary>
+            <typeparam name="T">Type of behavior.</typeparam>
+            <param name="operationDesc">Operation description.</param>
+            <returns>Added behavior.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.SetReaderQuotas(System.Xml.XmlDictionaryReaderQuotas)">
+            <summary>Set the read quotas for the end point.</summary>
+            <param name="readerQuotas">Reader quotas for the end point.</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.CreateXmlWriterAndWriteProcessingInstruction(System.IO.Stream,System.Text.Encoding)">
+            <summary>
+            Creates a new XmlWriter instance using the specified stream and writers the processing instruction
+            with the given encoding value
+            </summary>
+            <param name="stream"> The stream to which you want to write</param>
+            <param name="encoding"> Encoding that you want to specify in the reader settings as well as the processing instruction </param>
+            <returns>XmlWriter with the appropriate xml settings and processing instruction</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.CreateXmlWriterSettings(System.Text.Encoding)">
+            <summary>
+            Creates a new XmlWriterSettings instance using the encoding.
+            </summary>
+            <param name="encoding"> Encoding that you want to specify in the reader settings as well as the processing instruction </param>
+            <returns>XmlWriterSettings instance.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.GetMessageAction(System.ServiceModel.Description.ContractDescription,System.String,System.String,System.Boolean)">
+            <summary>
+            Obtains the action name based on contract, operation and direction of action.
+            </summary>
+            <param name="contractName">Contract name.</param>
+            <param name="opname">Operation name.</param>
+            <param name="action">Request or response action.</param>
+            <param name="isResponse">true if response action, false if request action.</param>
+            <returns>String representing the action.</returns>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.AuthenticationScheme">
+            <summary>Gets the default authentication scheme supported by the server.</summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.CredentialType">
+            <summary>Gets the default credential type supported by the server.</summary>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.WebServiceHostInspector">
+            <summary>
+            Uses the WCF <see cref="T:System.ServiceModel.Web.WebServiceHost"/> to get the default authentication scheme
+            and credential type for services on the current server.
+            </summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.WebServiceHostInspector._authenticationScheme">
+            <summary>Default is no authentication scheme.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.WebServiceHostInspector._credentialType">
+            <summary>Default is no credential type.</summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.WebServiceHostInspector.#ctor">
+            <summary>Constructor for host inspector.</summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.WebServiceHostInspector.Inspect">
+            <summary>Detects the default authentication scheme and credential type.</summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.WebServiceHostInspector.OnOpening">
+            <summary>Perform the actual detection of authentication scheme and credential type in WCF event handler.</summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.WebServiceHostInspector.AuthenticationScheme">
+            <summary>Gets the default authentication scheme.</summary>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.WebServiceHostInspector.CredentialType">
+            <summary>Gets the default credential type.</summary>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.WebServiceHostInspector.IService">
+            <summary>Dummy service contract used by the host inspector.</summary>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Hosting.OData.ServiceUtils.WebServiceHostInspector.Service">
+            <summary>Dummy service used by host inspector.</summary>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Hosting.OData.TypeUtils">
+            <summary>
+            Contains utility methods for inspecting types through Reflection.
+            </summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.TypeUtils.LiteralPrefixBinary">
+            <summary>'binary' constant prefixed to binary literals.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.TypeUtils.LiteralPrefixDateTime">
+            <summary>'datetime' constant prefixed to datetime literals.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.TypeUtils.LiteralPrefixGuid">
+            <summary>'guid' constant prefixed to guid literals.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.TypeUtils.XmlBinaryPrefix">
+            <summary>'X': Prefix to binary type string representation.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.TypeUtils.XmlDecimalLiteralSuffix">
+            <summary>'M': Suffix for decimal type's string representation</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.TypeUtils.XmlInt64LiteralSuffix">
+            <summary>'L': Suffix for long (int64) type's string representation</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.TypeUtils.XmlSingleLiteralSuffix">
+            <summary>'f': Suffix for float (single) type's string representation</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.TypeUtils.XmlDoubleLiteralSuffix">
+            <summary>'D': Suffix for double (Real) type's string representation</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.TypeUtils.OutOfMemoryType">
+            <summary>Type of OutOfMemoryException.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.TypeUtils.StackOverflowType">
+            <summary>Type of StackOverflowException.</summary>
+        </member>
+        <member name="F:System.ServiceModel.DomainServices.Hosting.OData.TypeUtils.ThreadAbortType">
+            <summary>Type of ThreadAbortException.</summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.TypeUtils.IsDataMember(System.ComponentModel.PropertyDescriptor)">
+            <summary>Checks if the given property has DataMember attribute.</summary>
+            <param name="property">Given property.</param>
+            <returns>true if DataMember attribute is set, false otherwise.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.TypeUtils.IsAssociation(System.ComponentModel.PropertyDescriptor)">
+            <summary>Checks if the given property represents an association.</summary>
+            <param name="property">Given property.</param>
+            <returns>true if property is an association, false otherwise.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.TypeUtils.IsComposition(System.ComponentModel.PropertyDescriptor)">
+            <summary>Checks if the given property represents a composition.</summary>
+            <param name="property">Given property.</param>
+            <returns>true if property is a composition, false otherwise.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.TypeUtils.IsExternalReference(System.ComponentModel.PropertyDescriptor)">
+            <summary>Checks if the given property represents an external reference.</summary>
+            <param name="property">Given property.</param>
+            <returns>true if property is an external reference, false otherwise.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.TypeUtils.IsExcluded(System.ComponentModel.PropertyDescriptor)">
+            <summary>Checks if the given property is excluded.</summary>
+            <param name="property">Given property.</param>
+            <returns>true if property is excluded, false otherwise.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.TypeUtils.IsKeyProperty(System.ComponentModel.PropertyDescriptor)">
+            <summary>Checks if the given property is a key property.</summary>
+            <param name="property">Property to check.</param>
+            <returns>true if property is a key property, false otherwise.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.TypeUtils.IsSerializableDataMember(System.ComponentModel.PropertyDescriptor)">
+            <summary>
+            Returns true if the specified property is a data member that should be serialized
+            </summary>
+            <param name="propertyDescriptor">The property to inspect</param>
+            <returns>true if the specified property is a data member that should be serialized</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.TypeUtils.GetIQueryableElement(System.Type)">
+            <summary>
+            Returns the type of the IQueryable if the type implements IQueryable interface
+            </summary>
+            <param name="type">clr type on which IQueryable check needs to be performed.</param>
+            <returns>Element type if the property type implements IQueryable, else returns null</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.TypeUtils.GetIEnumerableElement(System.Type)">
+            <summary>
+            Returns the type of the IEnumerable if the type implements IEnumerable interface; null otherwise.
+            </summary>
+            <param name="type">type that needs to be checked</param>
+            <returns>Element type if the type implements IEnumerable, else returns null</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.TypeUtils.IsCatchableExceptionType(System.Exception)">
+            <summary>
+            Determines whether the specified exception can be caught and 
+            handled, or whether it should be allowed to continue unwinding.
+            </summary>
+            <param name="e"><see cref="T:System.Exception"/> to test.</param>
+            <returns>
+            true if the specified exception can be caught and handled; 
+            false otherwise.
+            </returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.TypeUtils.GetClientType(System.Type)">
+            <summary>
+            Gets the type that should be used on the client for the specified type.
+            </summary>
+            <param name="t">The type to get the client type for.</param>
+            <returns>The client type.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.TypeUtils.GetClientValue(System.Type,System.Object)">
+            <summary>
+            Gets a value that can be used by the client.
+            </summary>
+            <param name="targetType">The type used by the client.</param>
+            <param name="value">The value on the server.</param>
+            <returns>A value that can be used by the client.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.TypeUtils.GetServerValue(System.Type,System.Object)">
+            <summary>
+            Gets a value that can be used by the server.
+            </summary>
+            <param name="targetType">The type used by the server.</param>
+            <param name="value">The value from the client.</param>
+            <returns>A value that can be used by the server.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.TypeUtils.IQueryableTypeFilter(System.Type,System.Object)">
+            <summary>Filter callback for finding IQueryable implementations.</summary>
+            <param name="m">Type to inspect.</param>
+            <param name="filterCriteria">Filter criteria.</param>
+            <returns>true if the specified type is an IQueryable of T; false otherwise.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.TypeUtils.IEnumerableTypeFilter(System.Type,System.Object)">
+            <summary>Filter callback for finding IEnumerable implementations.</summary>
+            <param name="m">Type to inspect.</param>
+            <param name="filterCriteria">Filter criteria.</param>
+            <returns>true if the specified type is an IEnumerable of T; false otherwise.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.TypeUtils.GetGenericInterfaceElementType(System.Type,System.Reflection.TypeFilter)">
+            <summary>
+            Returns the "T" in the IQueryable of T implementation of type.
+            </summary>
+            <param name="type">Type to check.</param>
+            <param name="typeFilter">filter against which the type is checked</param>
+            <returns>
+            The element type for the generic IQueryable interface of the type,
+            or null if it has none or if it's ambiguous.
+            </returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.TypeUtils.HasAttribute(System.ComponentModel.PropertyDescriptor,System.Type)">
+            <summary>Checks if given property has the attribute set.</summary>
+            <param name="target">Property desriptor.</param>
+            <param name="attribute">Attribute to check for.</param>
+            <returns>true if attribute is present, false otherwise.</returns>
+        </member>
+        <member name="P:System.ServiceModel.DomainServices.Hosting.OData.TypeUtils.XmlWhitespaceChars">
+            <summary>XML whitespace characters to trim around literals.</summary>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Hosting.OData.UriUtils">
+            <summary>
+            Contains utility methods for working with URIs.
+            </summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.UriUtils.ReplaceLastSegment(System.Uri,System.String)">
+            <summary>
+            Replaces the last segment in the given URI with <paramref name="identifier"/>
+            </summary>
+            <param name="input">Input URI.</param>
+            <param name="identifier">Identifier that replaces last segment.</param>
+            <returns>New URI with last segment replaced.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.UriUtils.EnumerateSegments(System.Uri,System.Uri)">
+            <summary>
+            Returns an object that can enumerate the segments in the specified path (eg: /foo/bar -&gt; foo, bar).
+            </summary>
+            <param name="absoluteRequestUri">A valid path portion of an uri.</param>
+            <param name="baseUri">baseUri for the request that is getting processed.</param>
+            <returns>An enumerable object of unescaped segments.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.UriUtils.ExtractSegmentIdentifier(System.String,System.String@)">
+            <summary>Extracts the identifier part of the unescaped Astoria segment.</summary>
+            <param name="segment">Unescaped Astoria segment.</param>
+            <param name="identifier">On returning, the identifier in the segment.</param>
+            <returns>true if keys follow the identifier.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.UriUtils.CombineUriStrings(System.String,System.String)">
+            <summary>
+            Merges the inputs to create a single URI string.
+            </summary>
+            <param name="baseUri">Base URI string.</param>
+            <param name="path">Relative path.</param>
+            <returns>Combined URI string.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.UriUtils.UriInvariantInsensitiveIsBaseOf(System.Uri,System.Uri)">
+            <summary>
+            Determines whether the <paramref name="current"/> Uri instance is a 
+            base of the specified Uri instance. 
+            </summary>
+            <param name="current">Candidate base URI.</param>
+            <param name="uri">The specified Uri instance to test.</param>
+            <returns>true if the current Uri instance is a base of uri; otherwise, false.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Hosting.OData.UriUtils.CreateBaseComparableUri(System.Uri)">
+            <summary>Creates a URI suitable for host-agnostic comparison purposes.</summary>
+            <param name="uri">URI to compare.</param>
+            <returns>URI suitable for comparison.</returns>
+        </member>
+    </members>
+</doc>

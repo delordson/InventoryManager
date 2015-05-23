@@ -1,0 +1,28 @@
+﻿
+<Configuration>
+  <Manifests>
+    <Manifest>Microsoft.LightSwitch.Base.Client.Manifest.xml</Manifest>
+    <Manifest>Microsoft.LightSwitch.Client.Internal.Manifest.xml</Manifest>
+    <Manifest>Microsoft.LightSwitch.Model.Xaml.Client.Manifest.xml</Manifest>
+  <Manifest>Microsoft.LightSwitch.RuntimeEditor.Internal.Manifest.xml</Manifest><Manifest>Microsoft.VisualStudio.Debugger.Runtime.Dll.Manifest.xml</Manifest></Manifests>
+  <SubsystemPackages>
+    <SubsystemPackage>ModelLoader</SubsystemPackage>
+    <SubsystemPackage>RuntimeExtensionLoader</SubsystemPackage>
+    <SubsystemPackage>PresentationRuntimeLoader</SubsystemPackage>
+    <SubsystemPackage>ReportingLoader</SubsystemPackage>
+    <SubsystemPackage>RulesLoader</SubsystemPackage>
+    <SubsystemPackage>RuntimeServicesLoader</SubsystemPackage>
+    <SubsystemPackage>RuntimeShellLoader</SubsystemPackage>
+    <SubsystemPackage>ThemingRuntimeLoader</SubsystemPackage>
+    <SubsystemPackage>UtilitiesLoader</SubsystemPackage>
+    <SubsystemPackage>BaseServicesLoader</SubsystemPackage>
+    <SubsystemPackage>DiagnosticsLoader</SubsystemPackage>
+    <SubsystemPackage>RuntimeUserCodeLoader</SubsystemPackage>
+  <SubsystemPackage>RuntimeEditLoader</SubsystemPackage><SubsystemPackage>AppBridgeLoader</SubsystemPackage></SubsystemPackages>
+  <UserCodeAssemblies><UserCodeAssembly>InventoryManagerApp.DesktopClient, Version=1.0.6.0, Culture=neutral, PublicKeyToken=null</UserCodeAssembly></UserCodeAssemblies>
+  <ExtensionAssemblies>
+    <ExtensionAssembly>Microsoft.LightSwitch.SdkProxy, Version=10.0.12.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35</ExtensionAssembly>
+    <ExtensionAssembly>Microsoft.LightSwitch.Extensions.Client, Version=12.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35</ExtensionAssembly>
+    <ExtensionAssembly>Microsoft.LightSwitch.Cosmopolitan.Client, Version=12.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35</ExtensionAssembly>
+  <ExtensionAssembly>Microsoft.LightSwitch.Extensions.Design.Client, Version=12.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</ExtensionAssembly></ExtensionAssemblies>
+<ApplicationCulture>en-US</ApplicationCulture><SupportedCultures>en-US</SupportedCultures><ManifestTimeStamp>130428789102499962</ManifestTimeStamp><ApplicationName>InventoryManagerApp</ApplicationName><Version>1.0.6.0</Version><RootProjectGuid>{3e71a785-03a6-420a-ae0b-a2df66ac7e98}</RootProjectGuid></Configuration>

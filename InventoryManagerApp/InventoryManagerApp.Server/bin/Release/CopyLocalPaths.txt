@@ -1,0 +1,35 @@
+C:\Program Files (x86)\Microsoft SDKs\LightSwitch\v4.0\\Server\Microsoft.Data.Edm.dll
+C:\Program Files (x86)\Microsoft SDKs\LightSwitch\v4.0\\Server\Microsoft.Data.OData.dll
+C:\Program Files (x86)\Microsoft SDKs\LightSwitch\v4.0\\Server\Microsoft.Data.Services.Client.dll
+C:\Program Files (x86)\Microsoft SDKs\LightSwitch\v4.0\\Server\Microsoft.Data.Services.dll
+C:\Program Files (x86)\Microsoft SDKs\LightSwitch\v4.0\\Server\Microsoft.LightSwitch.AppBridge.dll
+C:\Program Files (x86)\Microsoft SDKs\LightSwitch\v4.0\\Client\Microsoft.LightSwitch.CodeMarker.dll
+C:\Program Files (x86)\Microsoft SDKs\LightSwitch\v4.0\\Client\Microsoft.LightSwitch.dll
+C:\Program Files (x86)\Microsoft SDKs\LightSwitch\v4.0\\Client\Microsoft.LightSwitch.ExportProvider.dll
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\_Pvt_Extensions\Microsoft.LightSwitch.Extensions\Server\Reference\Microsoft.LightSwitch.Extensions.Server.dll
+C:\Program Files (x86)\Microsoft SDKs\LightSwitch\v4.0\\Server\Microsoft.LightSwitch.ManifestService.dll
+C:\Program Files (x86)\Microsoft SDKs\LightSwitch\v4.0\\Server\Microsoft.LightSwitch.Model.Xaml.dll
+C:\Program Files (x86)\Microsoft SDKs\LightSwitch\v4.0\\Server\Microsoft.LightSwitch.Server.dll
+C:\Program Files (x86)\Microsoft SDKs\LightSwitch\v4.0\\Server\Microsoft.LightSwitch.Server.Host.dll
+C:\BitBucket\InventoryManagerApp\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll
+C:\BitBucket\InventoryManagerApp\Packages\System.IdentityModel.Tokens.Jwt.1.0.0\lib\net45\System.IdentityModel.Tokens.Jwt.dll
+C:\BitBucket\InventoryManagerApp\packages\Microsoft.AspNet.WebApi.Client.5.0.0\lib\net45\System.Net.Http.Formatting.dll
+C:\Program Files (x86)\Microsoft SDKs\RIA Services\\v1.0\Libraries\Server\System.ServiceModel.DomainServices.EntityFramework.dll
+C:\Program Files (x86)\Microsoft SDKs\RIA Services\\v1.0\Libraries\Server\System.ServiceModel.DomainServices.Hosting.dll
+C:\Program Files (x86)\Microsoft SDKs\RIA Services\\v1.0\Libraries\Server\System.ServiceModel.DomainServices.Hosting.OData.dll
+C:\Program Files (x86)\Microsoft SDKs\RIA Services\\v1.0\Libraries\Server\System.ServiceModel.DomainServices.Server.dll
+C:\Program Files (x86)\Microsoft SDKs\LightSwitch\v4.0\\Server\System.ServiceModel.PollingDuplex.dll
+C:\Program Files (x86)\Microsoft SDKs\LightSwitch\v4.0\\Server\System.Spatial.dll
+C:\BitBucket\InventoryManagerApp\packages\Microsoft.AspNet.WebApi.Core.5.0.0\lib\net45\System.Web.Http.dll
+C:\BitBucket\InventoryManagerApp\packages\Microsoft.AspNet.WebApi.WebHost.5.0.0\lib\net45\System.Web.Http.WebHost.dll
+C:\BitBucket\InventoryManagerApp\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.xml
+C:\BitBucket\InventoryManagerApp\packages\Microsoft.AspNet.WebApi.Client.5.0.0\lib\net45\System.Net.Http.Formatting.xml
+C:\BitBucket\InventoryManagerApp\packages\Microsoft.AspNet.WebApi.Core.5.0.0\lib\net45\System.Web.Http.xml
+C:\BitBucket\InventoryManagerApp\packages\Microsoft.AspNet.WebApi.WebHost.5.0.0\lib\net45\System.Web.Http.WebHost.xml
+C:\Program Files (x86)\Microsoft SDKs\LightSwitch\v4.0\Client\Microsoft.LightSwitch.xml
+C:\Program Files (x86)\Microsoft SDKs\LightSwitch\v4.0\Server\Microsoft.LightSwitch.Server.xml
+C:\BitBucket\InventoryManagerApp\Packages\System.IdentityModel.Tokens.Jwt.1.0.0\lib\net45\System.IdentityModel.Tokens.Jwt.xml
+C:\Program Files (x86)\Microsoft SDKs\RIA Services\v1.0\Libraries\Server\System.ServiceModel.DomainServices.EntityFramework.xml
+C:\Program Files (x86)\Microsoft SDKs\RIA Services\v1.0\Libraries\Server\System.ServiceModel.DomainServices.Hosting.xml
+C:\Program Files (x86)\Microsoft SDKs\RIA Services\v1.0\Libraries\Server\System.ServiceModel.DomainServices.Hosting.OData.xml
+C:\Program Files (x86)\Microsoft SDKs\RIA Services\v1.0\Libraries\Server\System.ServiceModel.DomainServices.Server.xml

@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>System.ServiceModel.PollingDuplex</name>
+  </assembly>
+  <members>
+    <member name="T:System.ServiceModel.PollingDuplexHttpBinding">
+      <summary>Represents a binding that a Silverlight 5 client can use to configure endpoints that can communicate with Windows Communication Foundation (WCF) services that are similarly configured for duplex communication with a polling client.</summary>
+    </member>
+    <member name="M:System.ServiceModel.PollingDuplexHttpBinding.#ctor">
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.PollingDuplexHttpBinding" /> class.</summary>
+    </member>
+    <member name="M:System.ServiceModel.PollingDuplexHttpBinding.#ctor(System.ServiceModel.Channels.PollingDuplexMode)">
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.PollingDuplexHttpBinding" /> class with a specified mode of behavior on the server in response to client polling.</summary>
+      <param name="duplexMode">The mode of behavior exhibited on a server in response to client polling when the communication between them is configured for duplex polling.</param>
+    </member>
+    <member name="M:System.ServiceModel.PollingDuplexHttpBinding.#ctor(System.ServiceModel.PollingDuplexHttpSecurityMode)">
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.PollingDuplexHttpBinding" /> class with a specified type of security used by the binding.</summary>
+      <param name="securityMode">The value of <see cref="T:System.ServiceModel.PollingDuplexHttpSecurityMode" /> that specifies the type of security that is used with the SOAP message and for the client.</param>
+    </member>
+    <member name="M:System.ServiceModel.PollingDuplexHttpBinding.#ctor(System.ServiceModel.PollingDuplexHttpSecurityMode,System.ServiceModel.Channels.PollingDuplexMode)">
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.PollingDuplexHttpBinding" /> class with a specified type of security and a specified mode of behavior on the server in the way it responses to client polling.</summary>
+      <param name="securityMode">The value of <see cref="T:System.ServiceModel.PollingDuplexHttpSecurityMode" /> that specifies the type of security that is used with the SOAP message and for the client.</param>
+      <param name="duplexMode">The mode of behavior exhibited on a server in response to client polling when the communication between them is configured for duplex polling.</param>
+    </member>
+    <member name="M:System.ServiceModel.PollingDuplexHttpBinding.CreateBindingElements">
+      <summary>Returns an ordered collection of binding elements contained in the current binding.</summary>
+      <returns>The <see cref="T:System.ServiceModel.Channels.BindingElementCollection" /> that contains the ordered stack of binding elements described by the <see cref="T:System.PollingDuplexHttpBinding.BasicHttpBinding" />.</returns>
+    </member>
+    <member name="P:System.ServiceModel.PollingDuplexHttpBinding.DuplexMode">
+      <summary>Gets or sets a value that specifies how the server behaves in response to client polling when the communication is configured for duplex polling.</summary>
+      <returns>A <see cref="T:System.ServiceModel.Channels.PollingDuplexMode" /> object whose value indicates how the server behaves in response to client polling when the communication is configured for duplex. The default value is <see cref="F:System.ServiceModel.Channels.PollingDuplexMode.SingleMessagesPerPoll" />.</returns>
+    </member>
+    <member name="P:System.ServiceModel.PollingDuplexHttpBinding.EnvelopeVersion">
+      <summary>Gets the version of SOAP that is used for messages that are processed by this binding.</summary>
+      <returns>The value of the <see cref="T:System.ServiceModel.EnvelopeVersion" /> that is used with this binding. The value is always SOAP 1.2.</returns>
+    </member>
+    <member name="P:System.ServiceModel.PollingDuplexHttpBinding.InactivityTimeout">
+      <summary>Gets or sets the maximum interval of time that can pass without activity on a channel before the client or server channel enters a faulted state. The default value is 10 minutes.</summary>
+      <returns>The <see cref="T:System.TimeSpan" /> value that specifies the maximum interval of time that can pass without activity on a channel before the channel enters a faulted state.</returns>
+      <exception cref="T:System.ArgumentOutOfRangeException">The value is less than zero, or it is larger than the maximum time allowed.</exception>
+    </member>
+    <member name="P:System.ServiceModel.PollingDuplexHttpBinding.MaxBufferSize">
+      <summary>Gets or sets the maximum size for a buffer that receives messages from the channel.</summary>
+      <returns>The maximum size, in bytes, of a buffer that stores messages while they are processed for an endpoint configured with this binding. The default value is 65,536 bytes.</returns>
+    </member>
+    <member name="P:System.ServiceModel.PollingDuplexHttpBinding.MaxReceivedMessageSize">
+      <summary>Gets or sets the maximum size for a message that can be received on a channel configured with this binding.</summary>
+      <returns>The maximum size, in bytes, for a message that is processed by the binding. The default value is 65,536 bytes.</returns>
+      <exception cref="T:System.ArgumentOutOfRangeException">The value is less than zero.</exception>
+    </member>
+    <member name="P:System.ServiceModel.PollingDuplexHttpBinding.Scheme">
+      <summary>Gets the URI transport scheme for the channels and listeners that are configured with this binding.</summary>
+      <returns>"https" if the security mode in the transport binding element is set to <see cref="F:System.ServiceModel.BasicHttpSecurityMode.Transport" /> or <see cref="F:System.ServiceModel.BasicHttpSecurityMode.TransportWithMessageCredentials" />; otherwise, "http".</returns>
+    </member>
+    <member name="P:System.ServiceModel.PollingDuplexHttpBinding.Security">
+      <summary>Gets the type of security used with this binding.</summary>
+      <returns>The <see cref="T:System.ServiceModel.PollingDuplexHttpSecurity" /> that is used with this binding. The default value is <see cref="F:System.ServiceModel.BasicHttpSecurityMode.None" />. </returns>
+    </member>
+    <member name="P:System.ServiceModel.PollingDuplexHttpBinding.TextEncoding">
+      <summary>Gets or sets the character encoding that is used for the message text.</summary>
+      <returns>The <see cref="T:System.Text.Encoding" /> that indicates the character encoding that is used. The default is <see cref="T:System.Text.UTF8Encoding" />.</returns>
+    </member>
+    <member name="P:System.ServiceModel.PollingDuplexHttpBinding.UseTextEncoding">
+      <summary>Gets or sets a value that indicates whether text or binary encoding is used for the message.</summary>
+      <returns>true if text encoding is used; false if binary encoding is used.</returns>
+    </member>
+    <member name="T:System.ServiceModel.PollingDuplexHttpSecurity">
+      <summary>Specifies the security used for a Silverlight client configured with a <see cref="T:System.ServiceModel.PollingDuplexHttpBinding" />.</summary>
+    </member>
+    <member name="P:System.ServiceModel.PollingDuplexHttpSecurity.Mode">
+      <summary>Gets or sets the mode of security for a client configured with a <see cref="T:System.ServiceModel.PollingDuplexHttpBinding" />.</summary>
+      <returns>A value in the <see cref="T:System.ServiceModel.PollingDuplexHttpSecurityMode" /> enumeration. The default value for this property is <see cref="F:System.ServiceModel.PollingDuplexHttpSecurityMode.None" />.</returns>
+      <exception cref="T:System.ArgumentOutOfRangeException">The value is not a legal value for <see cref="T:System.ServiceModel.PollingDuplexHttpSecurityMode" />.</exception>
+    </member>
+    <member name="T:System.ServiceModel.PollingDuplexHttpSecurityMode">
+      <summary>Specifies the types of security that can be used with the system-provided <see cref="T:System.ServiceModel.PollingDuplexHttpBinding" />.</summary>
+    </member>
+    <member name="F:System.ServiceModel.PollingDuplexHttpSecurityMode.None">
+      <summary>The SOAP message is not secured during transfer. This is the default behavior.</summary>
+    </member>
+    <member name="F:System.ServiceModel.PollingDuplexHttpSecurityMode.Transport">
+      <summary>Security is provided using HTTPS. The service must be configured with SSL certificates. The SOAP message is protected as a whole using HTTPS. The service is authenticated by the client using the service’s SSL certificate.</summary>
+    </member>
+    <member name="F:System.ServiceModel.PollingDuplexHttpSecurityMode.TransportWithMessageCredential">
+      <summary>This mode provides integrity, confidentiality, and server authentication using HTTPS. The service must be configured with a certificate. Client authentication is provided by SOAP message security.This mode is applicable when the user is authenticating with a UserName or Certificate credential and there is an existing HTTPS deployment for securing message transfer.</summary>
+    </member>
+    <member name="F:System.ServiceModel.PollingDuplexHttpSecurityMode.TransportCredentialOnly">
+      <summary>This mode provides only HTTP-based client authentication. It does not provide message integrity or confidentiality.</summary>
+    </member>
+    <member name="T:System.ServiceModel.Channels.PollingDuplexBindingElement">
+      <summary>Represents the binding element that enables duplex communication between a Silverlight 5 client and a service.</summary>
+    </member>
+    <member name="M:System.ServiceModel.Channels.PollingDuplexBindingElement.#ctor">
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Channels.PollingDuplexBindingElement" /> class.</summary>
+    </member>
+    <member name="M:System.ServiceModel.Channels.PollingDuplexBindingElement.#ctor(System.ServiceModel.Channels.PollingDuplexBindingElement)">
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Channels.PollingDuplexBindingElement" /> class from an existing one.</summary>
+      <param name="elementToBeCloned"> The instance of the <see cref="T:System.ServiceModel.Channels.PollingDuplexBindingElement" /> class to be cloned.</param>
+    </member>
+    <member name="M:System.ServiceModel.Channels.PollingDuplexBindingElement.#ctor(System.ServiceModel.Channels.PollingDuplexMode)">
+      <summary>Initializes a new instance of the <see cref="T:System.ServiceModel.Channels.PollingDuplexBindingElement" /> class with a specified polling duplex mode.</summary>
+      <param name="duplexMode">A <see cref="T:System.ServiceModel.Channels.PollingDuplexMode" /> object that specifies how the server behaves in response to client polling when the communication is configured for duplex polling.</param>
+    </member>
+    <member name="M:System.ServiceModel.Channels.PollingDuplexBindingElement.BuildChannelFactory``1(System.ServiceModel.Channels.BindingContext)">
+      <summary>Creates a channel factory that can be used to create a channel.</summary>
+      <returns>A channel factory of the specified type.</returns>
+      <param name="context">
+        <see cref="T:System.ServiceModel.Channels.BindingContext" /> members that describe bindings, behaviors, contracts and other information required to create the channel factory.</param>
+      <typeparam name="TChannel">Type of channel factory.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="context" /> cannot be null.</exception>
+    </member>
+    <member name="M:System.ServiceModel.Channels.PollingDuplexBindingElement.CanBuildChannelFactory``1(System.ServiceModel.Channels.BindingContext)">
+      <summary>Determines whether a channel factory of the specified type can be built.</summary>
+      <returns>true if a channel factory can be built; otherwise, false.</returns>
+      <param name="context"> The <see cref="T:System.ServiceModel.Channels.BindingContext" /> for the channel to be built.</param>
+      <typeparam name="TChannel">The type of channel to check.</typeparam>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="context" /> is null.</exception>
+    </member>
+    <member name="P:System.ServiceModel.Channels.PollingDuplexBindingElement.ClientPollTimeout">
+      <summary>The interval of time that a client polling request has to complete before timing out.</summary>
+      <returns>The default <see cref="T:System.Timespan" /> that specifies how long a request has to complete before timing out.</returns>
+    </member>
+    <member name="M:System.ServiceModel.Channels.PollingDuplexBindingElement.Clone">
+      <summary>Creates a copy of the current binding element.</summary>
+      <returns>A copy of the current binding element.</returns>
+    </member>
+    <member name="P:System.ServiceModel.Channels.PollingDuplexBindingElement.DuplexMode">
+      <summary>Gets or sets a value that specifies how the server behaves in response to client polling when the communication is configured for duplex polling.</summary>
+      <returns>A <see cref="T:System.ServiceModel.Channels.PollingDuplexMode" /> object whose value indicates how the server behaves in response to client polling when the communication is configured for duplex. The default value is <see cref="F:System.ServiceModel.Channels.PollingDuplexMode.SingleMessagesPerPoll" />.</returns>
+    </member>
+    <member name="M:System.ServiceModel.Channels.PollingDuplexBindingElement.GetProperty``1(System.ServiceModel.Channels.BindingContext)">
+      <summary>Gets a property from the specified <see cref="T:System.ServiceModel.Channels.BindingContext" />.</summary>
+      <returns>The property from the specified <see cref="T:System.ServiceModel.Channels.BindingContext" />.</returns>
+      <param name="context">A <see cref="T:System.ServiceModel.Channels.BindingContext" />.</param>
+      <typeparam name="T">The property to get.</typeparam>
+    </member>
+    <member name="P:System.ServiceModel.Channels.PollingDuplexBindingElement.InactivityTimeout">
+      <summary>Gets or sets the maximum interval of time that can pass without activity on a channel before the client channel enters a faulted state.</summary>
+      <returns>The <see cref="T:System.TimeSpan" /> object that specifies the maximum interval of time that can pass without activity on a channel before the client channel enters a faulted state.</returns>
+    </member>
+    <member name="P:System.ServiceModel.Channels.PollingDuplexBindingElement.MaxPendingMessagesPerSession">
+      <summary>Gets or sets the maximum number of pending messages per session.</summary>
+      <returns>The maximum number of pending messages per session.</returns>
+      <exception cref="T:System.ArgumentOutOfRangeException">The value set is less than zero.</exception>
+    </member>
+    <member name="T:System.ServiceModel.Channels.PollingDuplexMode">
+      <summary>Specifies the format of server responses to client polling when the communication is configured for duplex polling.</summary>
+    </member>
+    <member name="F:System.ServiceModel.Channels.PollingDuplexMode.SingleMessagePerPoll">
+      <summary>Specifies the server will return one message every time the client polls for a message and then close the polling connection. This is the default value.</summary>
+    </member>
+    <member name="F:System.ServiceModel.Channels.PollingDuplexMode.MultipleMessagesPerPoll">
+      <summary>Specifies the server keeps the connection open for as long there are messages ready to be sent back to the client and sends as many messages back to the client as it can over a chunked HTTP response.</summary>
+    </member>
+  </members>
+</doc>

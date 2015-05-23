@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<ModelDocumentManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Documents>
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.DesktopClient\Properties\Client.lsml" Checksum="A1B936DAFE334ACF20C0E989FB5B4A8933279C29118D301ABC9B1F4AD5FF667E" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.DesktopClient\Properties\Proxies.lsml" Checksum="826331280463936C26801447B36EBA4E1BE35699BA347FFF2D992AF750DE6BB5" />
+  </Documents>
+</ModelDocumentManifest>

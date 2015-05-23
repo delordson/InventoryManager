@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <IisApp path="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\bin\Release\app.publish\" />
+  <setAcl path="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\bin\Release\app.publish\" setAclResourceType="Directory" />
+  <setAcl path="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\bin\Release\app.publish\" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
+</sitemanifest>

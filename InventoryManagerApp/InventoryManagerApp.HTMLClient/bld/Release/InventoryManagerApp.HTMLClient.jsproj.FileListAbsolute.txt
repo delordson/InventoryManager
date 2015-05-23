@@ -1,0 +1,2 @@
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.HTMLClient\bin\Release\LSResourceGeneratorsTask.mcs
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.HTMLClient\bin\Release\LSClientCodeGeneratorsTask.mcs

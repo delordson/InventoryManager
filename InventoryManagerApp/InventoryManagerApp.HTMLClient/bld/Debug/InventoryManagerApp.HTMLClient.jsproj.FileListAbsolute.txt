@@ -1,0 +1,4 @@
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.HTMLClient\bin\Debug\LSResourceGeneratorsTask.mcs
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.HTMLClient\bin\Debug\LSClientCodeGeneratorsTask.mcs
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.HTMLClient\bin\Debug\LSResourceGeneratorsTask.mcs
+C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.HTMLClient\bin\Debug\LSClientCodeGeneratorsTask.mcs

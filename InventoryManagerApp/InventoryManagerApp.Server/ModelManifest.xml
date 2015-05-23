@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<ModelDocumentManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Documents>
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\DataSources\ApplicationData\Customers.lsml" Checksum="429D4CB8C310329A7284DA2DBFAC2F9A05EAB94E00F1B0F6166A554B7EE000D3" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\DataSources\ApplicationData\Employees.lsml" Checksum="0AF1B253F1AD0827EA2D7001A15C352F3DBD2B9947C1AB8FC693C4E0B948A88B" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\DataSources\ApplicationData\OrderDetails.lsml" Checksum="EE168E72C217379F51AC6E5240AA6065AEC3C68D65D9335049EF03E87863E778" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\DataSources\ApplicationData\Orders.lsml" Checksum="207486384926FC5C2C021EFC95E0DF0F42D85691159B57BA22A1510DB19FB9A4" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\DataSources\ApplicationData\ProductCategories.lsml" Checksum="2B881383891C3BF272B4B020560724A92B805157C2CF5846A6B5B34FC7E5447B" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\DataSources\ApplicationData\Products.lsml" Checksum="99BB8714E1D023CAC864BC3AAB2A32958AFF275AAD4EEF4BDA2D58F88F129E6B" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\DataSources\ApplicationData\ProductSubscribers.lsml" Checksum="53E2580B9315AFA584F02FE355DAE31FE0411177484577FAF6F350069682DB2C" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\DataSources\ApplicationData\PurchaseOrderDetails.lsml" Checksum="726FC1A5BE9A3945EC43A4A7DF90BA3F11994117940999EF6C33222B703775CE" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\DataSources\ApplicationData\PurchaseOrders.lsml" Checksum="BA077BF85FC1AAFFFAD7D271879F6BEA626E16D940E52F15B737409A426E1952" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\DataSources\ApplicationData\ShippingMethods.lsml" Checksum="25FCC23B96E4322F979ACC1AB36A1DF4A4446A95934CF03C2C7071B91584C4D5" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\DataSources\ApplicationData\StockCheckDetails.lsml" Checksum="233D22AC947B30F4EF30E837367A6535DC109BF8A903E3219D683255D503357F" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\DataSources\ApplicationData\StockChecks.lsml" Checksum="07B1E9431F8BE8C56C3F38819839DC00C98ADB7F1E8632DB0517EA0D84B06C9A" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\DataSources\ApplicationData\Suppliers.lsml" Checksum="0B856CD14DD7326F693AA84898E436EA88D8CB65D659A643FB84F5CB6D9583CA" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\Properties\DataSources\ApplicationData.lsml" Checksum="4269B7A1C607D3AEA1D34BA816EE24BE223A014F83A97F863157835AA09C6154" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.Server\Properties\Service.lsml" Checksum="53471132E96E7356B10D6727946C23B68DB89D0BA7AB5C7B93F7FDE39B54FA17" />
+  </Documents>
+</ModelDocumentManifest>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<ModelDocumentManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Documents>
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.HTMLClient\Properties\Client.lsml" Checksum="D5CD4703475385C9DB8CC5D779E1A5941C706AE155F32AC260A1C5DDAE18F139" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.HTMLClient\Properties\Proxies.lsml" Checksum="999605A6E29A16B32349AE5064F0CC40E17F791B4F3A32476264D6F6BED81AE4" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.HTMLClient\Screens\AddEditCustomer.lsml" Checksum="100FF63B24030670775412C91EF92CA0F2E9264722721B405FC0E03CD275793D" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.HTMLClient\Screens\AddEditEmployee.lsml" Checksum="0F80C1B2C1478B45311C31E0C39844788F5F2C2E5BC15BE5A59DF4C238E1C7AB" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.HTMLClient\Screens\AddEditOrder.lsml" Checksum="AB90B35241632C50CD4181C216EEC067E2D79F859EB3C819647376C0772F25CC" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.HTMLClient\Screens\AddEditOrderDetail.lsml" Checksum="80B9FCFC5BFCD8203AFEEE9EED45314208C55A097257613864BEEBF561D8C937" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.HTMLClient\Screens\AddEditProduct.lsml" Checksum="A18AAC0934DA10073EB6776D3172E2191C1993634373EBE09B730F35D070B6F8" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.HTMLClient\Screens\AddEditProductCategory.lsml" Checksum="2C263F677EF57CF2EED64AD171510BB2A2CB87AFBDF0B0649A57CA19CF442BCD" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.HTMLClient\Screens\AddEditProductSubscriber.lsml" Checksum="35BE02ABF629EBFF0986154ECC3A3E301BDCC92DBA48005C76D159B1FD95A84D" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.HTMLClient\Screens\AddEditPurchaseOrder.lsml" Checksum="FCDF76944591E684ABBC9B5F9390C1F0947CBE9704CEFE6F618A0B24C36E0097" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.HTMLClient\Screens\AddEditPurchaseOrderDetail.lsml" Checksum="52508D40FA10AAA1C018530F449F2D2CF11CDA4FD8FD64B7FD12AB8E8EFE04B0" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.HTMLClient\Screens\AddEditShippingMethod.lsml" Checksum="835793E4477376357079C4DB5FE7CC396E0BD40035B6DAE80C1F14CB9AA69DF6" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.HTMLClient\Screens\AddEditStockCheck.lsml" Checksum="EC08C105A520776670FD660FE5954C7A9701CA7280E1D6F321F0C0F4EDB71F45" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.HTMLClient\Screens\AddEditStockCheckDetail.lsml" Checksum="4FC0F392BE2F78D8E48EBAD314043F58559B058951102B06DAC83A580C325C1E" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.HTMLClient\Screens\AddEditSupplier.lsml" Checksum="11B4FE420952FEC4B3759A700CF56F8EB6A21891C9F4D799A116D6F4EB469E9F" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.HTMLClient\Screens\BrowseCustomers.lsml" Checksum="E35588E16B0FFD4C6F0E48F8B770D5142AA523C56C723F6C3B79BB29780A758B" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.HTMLClient\Screens\BrowseEmployees.lsml" Checksum="AB6AF4BA72440DC0A1072E2BF5DFA82CC46244532F0DF225E74A5AFD299287A7" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.HTMLClient\Screens\BrowseOrders.lsml" Checksum="86076C8EBB9CA02F8FD1F162241081D660488A5FB0F28A306C1D81B4F5175D1F" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.HTMLClient\Screens\BrowseProductCategories.lsml" Checksum="BA1A2388A055799A5FA7ACE5958A3EC60B6E72A5D67DFF8E90A7E5B43F7974DB" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.HTMLClient\Screens\BrowseProducts.lsml" Checksum="8DB2875B6AA2C30AA08828FF665FAC2DFA64C8E1D0EBA5437E2FF08298C524F3" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.HTMLClient\Screens\BrowsePurchaseOrders.lsml" Checksum="503995434D5C64759776A387A0F3E700861BABA3618C2576DF137725E0FA061A" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.HTMLClient\Screens\BrowseShippingMethods.lsml" Checksum="70A6728E99A7FC68B32FDBC8A5E496DF8F3F08B8FD8D38623091E1A899B27031" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.HTMLClient\Screens\BrowseStockChecks.lsml" Checksum="709CE529FABFBC47E1542E637D895AF9E222D543C2FB7C1FE8560535EDA4CDE4" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.HTMLClient\Screens\BrowseSuppliers.lsml" Checksum="9D079467918E18A89D962DBFCE65EA7DBF66E2492BC752C59ABC44EC19A0433B" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.HTMLClient\Screens\Home.lsml" Checksum="B3AA15A0F5B3338647DD0320823BEA828655212EFEB208A46B627D76BE3EEC15" />
+    <Document FullPath="C:\BitBucket\InventoryManagerApp\InventoryManagerApp\InventoryManagerApp.HTMLClient\Screens\MobileHome.lsml" Checksum="C5033F1AE4427DA713B257BEABADBA90F5ACF60C8E3E92841D9C73879BE8331F" />
+  </Documents>
+</ModelDocumentManifest>

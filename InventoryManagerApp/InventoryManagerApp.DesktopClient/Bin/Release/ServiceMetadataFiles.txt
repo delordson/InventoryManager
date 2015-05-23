@@ -1,0 +1,15 @@
+InventoryManagerApp.Server.Properties.Service.lsml
+InventoryManagerApp.Server.Properties.DataSources.ApplicationData.lsml
+InventoryManagerApp.Server.DataSources.ApplicationData.Products.lsml
+InventoryManagerApp.Server.DataSources.ApplicationData.ProductCategories.lsml
+InventoryManagerApp.Server.DataSources.ApplicationData.Employees.lsml
+InventoryManagerApp.Server.DataSources.ApplicationData.Orders.lsml
+InventoryManagerApp.Server.DataSources.ApplicationData.OrderDetails.lsml
+InventoryManagerApp.Server.DataSources.ApplicationData.Customers.lsml
+InventoryManagerApp.Server.DataSources.ApplicationData.Suppliers.lsml
+InventoryManagerApp.Server.DataSources.ApplicationData.PurchaseOrders.lsml
+InventoryManagerApp.Server.DataSources.ApplicationData.ShippingMethods.lsml
+InventoryManagerApp.Server.DataSources.ApplicationData.PurchaseOrderDetails.lsml
+InventoryManagerApp.Server.DataSources.ApplicationData.StockCheckDetails.lsml
+InventoryManagerApp.Server.DataSources.ApplicationData.StockChecks.lsml
+InventoryManagerApp.Server.DataSources.ApplicationData.ProductSubscribers.lsml
