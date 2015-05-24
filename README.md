@@ -23,7 +23,7 @@ The Home screen provides a main menu for accessing the App modules…
 
 &nbsp;
 
-<a href="https://github.com/delordson/InventoryManager/blob/master/Resources/main.png"><img title="screenshot_04192014_090821" alt="screenshot_04192014_090821" src="https://github.com/delordson/InventoryManager/blob/master/Resources/main.png" width="644" height="364" /></a>
+<a href="https://github.com/delordson/InventoryManager/blob/master/Resources/screenshot_04192014_090821.png"><img title="screenshot_04192014_090821" alt="screenshot_04192014_090821" src="https://github.com/delordson/InventoryManager/blob/master/Resources/screenshot_04192014_090821.png" width="644" height="364" /></a>
 
 &nbsp;
 <h2></h2>
